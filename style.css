@@ -2,41 +2,88 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
-/*For navigation bar*/
+/* --- CONTAINER (Ginawang Full Width para umabot sa gilid ng screen) --- */
+.container {
+    width: 100%;
+    padding-left: 5%;  /* Konting hingahan sa pinakadulong kaliwa */
+    padding-right: 8%; /* Konting hingahan sa pinakadulong kanan */
+}
+
+/* For navigation bar */
 .navbar {
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 30px 0; /* Dinagdagan ang padding para mas premium ang taas */
+    justify-content: space-between; 
 }
-nav{
-   flex:1;
-   text-align: right;
+
+.logo img {
+    width: 180px; 
 }
 
 nav ul {
-    display:inline-block;
     list-style-type: none;
 }
 
-nav ul li{
-    display:inline-block;
-    margin-right: 20px;
+nav ul li {
+    display: inline-block;
+    margin-left: 30px; /* Mas malawak na awang sa pagitan ng mga menu items */
 }
 
-a{
-    text-decoration:none;
-    color:#555;
-}
-
-p{
+a {
+    text-decoration: none;
     color: #555;
+    font-size: 15px;
+    font-weight: 500;
 }
 
-.container{
-    max-width: 1300px;
-    margin: auto;
-    padding-left:25px;
-    padding-right:25px;
+p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* --- ROW & COLUMNS ADJUSTMENT --- */
+.row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 60px;
+    gap: 20px;
+}
+
+/* Ginamit natin ang flex proportional growth para mas malapad ang sakop */
+.col-2 {
+    min-width: 300px;
+}
+
+.text-side {
+    flex: 1; /* Sakto lang ang laki para sa text */
+    max-width: 550px; /* Nilimita ang haba ng text para hindi dugtong-dugtong pakanan */
+}
+
+.col-2 h1 {
+    font-size: 52px; /* Mas pinalaki ng konti para mas bold ang dating */
+    line-height: 1.2;
+    margin-bottom: -15px;
+    color: #000;
+}
+
+/* --- PINALAKING IMAGE AT COLUMN BASE SA GUHIT MO --- */
+.product-image-container {
+    flex: 1.3; /* Mas malaki ang ratio nito para humaba ang sakop ng image pakanan */
+    display: flex;
+    justify-content: flex-end; /* Itutulak ang image sagad sa kanan doon sa circle mo */
+}
+
+.product-image {
+    width: 100%; /* Hahaba na siya ngayon base sa laki ng container niya */
+    max-width: 720px; /* Tumaas mula 500px para ma-achieve 'yung mahabang linya mo */
+    height: auto;
+    border-radius: 15px; 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08); /* Mas swabeng anino para sa malaking image */
 }
