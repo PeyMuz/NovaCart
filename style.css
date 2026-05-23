@@ -5,23 +5,23 @@
     font-family: sans-serif;
 }
 
-/* --- CONTAINER (Ginawang Full Width para umabot sa gilid ng screen) --- */
 .container {
     width: 100%;
-    padding-left: 5%;  /* Konting hingahan sa pinakadulong kaliwa */
-    padding-right: 8%; /* Konting hingahan sa pinakadulong kanan */
+    padding: 0 6%;
 }
 
-/* For navigation bar */
+/* NAVBAR */
 .navbar {
     display: flex;
     align-items: center;
-    padding: 30px 0; /* Dinagdagan ang padding para mas premium ang taas */
-    justify-content: space-between; 
+    justify-content: space-between;
+    padding: 18px 6%;
+    background-color: #005b96;
+    width: 100%;
 }
 
 .logo img {
-    width: 180px; 
+   width: 200px;
 }
 
 nav ul {
@@ -30,60 +30,136 @@ nav ul {
 
 nav ul li {
     display: inline-block;
-    margin-left: 30px; /* Mas malawak na awang sa pagitan ng mga menu items */
+    margin-left: 30px;
 }
-
-a {
+nav ul li a {
     text-decoration: none;
-    color: #555;
+    color: #fff;
     font-size: 15px;
     font-weight: 500;
+    transition: color 0.2s ease;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #cce0f5;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: #cce0f5;
+}
+
+/* GENERAL */
+a {
+    text-decoration: none;
 }
 
 p {
     color: #555;
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
-/* --- ROW & COLUMNS ADJUSTMENT --- */
+/* ROW */
 .row {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding-top: 60px;
-    gap: 20px;
+    padding: 80px 0;
+    gap: 40px;
 }
 
-/* Ginamit natin ang flex proportional growth para mas malapad ang sakop */
 .col-2 {
     min-width: 300px;
 }
 
+/* TEXT SIDE */
 .text-side {
-    flex: 1; /* Sakto lang ang laki para sa text */
-    max-width: 550px; /* Nilimita ang haba ng text para hindi dugtong-dugtong pakanan */
+    flex: 1;
+    max-width: 500px;
+    text-align: left;
 }
 
-.col-2 h1 {
-    font-size: 52px; /* Mas pinalaki ng konti para mas bold ang dating */
-    line-height: 1.2;
-    margin-bottom: -15px;
-    color: #000;
+.text-side h1 {
+    font-size: 52px;
+    line-height: 62px;
+    color: #002f4e;
+    margin-bottom: 20px;
 }
 
-/* --- PINALAKING IMAGE AT COLUMN BASE SA GUHIT MO --- */
+.text-side p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+/* IMAGE */
 .product-image-container {
-    flex: 1.3; /* Mas malaki ang ratio nito para humaba ang sakop ng image pakanan */
+    flex: 1.3;
     display: flex;
-    justify-content: flex-end; /* Itutulak ang image sagad sa kanan doon sa circle mo */
+    justify-content: flex-end;
 }
 
 .product-image {
-    width: 100%; /* Hahaba na siya ngayon base sa laki ng container niya */
-    max-width: 720px; /* Tumaas mula 500px para ma-achieve 'yung mahabang linya mo */
+    width: 100%;
+    max-width: 680px;
     height: auto;
-    border-radius: 15px; 
-    box-shadow: 0 15px 35px rgba(0,0,0,0.08); /* Mas swabeng anino para sa malaking image */
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 91, 150, 0.2);
+}
+
+/* BUTTON */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #005b96;
+    color: #fff;
+    padding: 13px 32px;
+    margin-top: 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #004a7c;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 91, 150, 0.35);
+}
+
+.btn:active {
+    background: #003f6b;
+    transform: translateY(0px) scale(0.98);
+    box-shadow: none;
+}
+
+.btn-icon {
+    width: 18px;
+    height: auto;
+    filter: brightness(0) invert(1);
+    transition: transform 0.2s ease;
+}
+
+.btn:hover .btn-icon {
+    transform: rotate(-8deg) scale(1.1);
 }
