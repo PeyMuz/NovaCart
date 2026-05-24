@@ -2,7 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
 }
 
 .container {
@@ -14,24 +18,35 @@
 .navbar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 18px 6%;
     background-color: #005b96;
     width: 100%;
 }
 
 .logo img {
-   width: 200px;
+    width: 200px;
+    filter: drop-shadow(3px 4px 8px rgba(0,0,0,0.5));
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: auto;
 }
 
 nav ul {
     list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 0;
 }
 
 nav ul li {
     display: inline-block;
     margin-left: 30px;
 }
+
 nav ul li a {
     text-decoration: none;
     color: #fff;
@@ -79,8 +94,9 @@ p {
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 80px 0;
+    padding: 80px 6%;
     gap: 40px;
+    min-height: 80vh;
 }
 
 .col-2 {
@@ -95,7 +111,7 @@ p {
 }
 
 .text-side h1 {
-    font-size: 52px;
+    font-size: 50px;
     line-height: 62px;
     color: #002f4e;
     margin-bottom: 20px;
@@ -103,9 +119,10 @@ p {
 
 .text-side p {
     color: #555;
-    font-size: 15px;
+    font-size: 18px;
     line-height: 1.7;
     margin-bottom: 10px;
+    max-width: 460px;
 }
 
 /* IMAGE */
@@ -113,11 +130,13 @@ p {
     flex: 1.3;
     display: flex;
     justify-content: flex-end;
+    overflow: hidden;
+    max-width: 60%;
 }
 
 .product-image {
     width: 100%;
-    max-width: 680px;
+    max-width: 750px;
     height: auto;
     border-radius: 16px;
     box-shadow: 0 12px 40px rgba(0, 91, 150, 0.2);
@@ -130,11 +149,11 @@ p {
     gap: 10px;
     background: #005b96;
     color: #fff;
-    padding: 13px 32px;
+    padding: 16px 40px;
     margin-top: 30px;
     border-radius: 8px;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 700;
     letter-spacing: 0.3px;
     transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
@@ -162,4 +181,59 @@ p {
 
 .btn:hover .btn-icon {
     transform: rotate(-8deg) scale(1.1);
+}
+
+/* CART ICON */
+.cart-icon img {
+    width: 45px;
+    height: 45px;
+    filter: brightness(0) invert(1);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.cart-icon img:hover {
+    transform: scale(1.1);
+}
+
+/* CATEGORIES */
+
+.categories{
+    margin: 70px 0;
+}
+.categories .row {
+    gap: 20px; /* ← mas maliit na gap = mas malaki ang cards */
+    padding: 40px 6%;
+    min-height: unset; /* ← tanggalin yung 80vh */
+}
+
+.col-3 {
+    flex: 1;
+    flex-basis: 30%;
+    min-width: 200px;
+    margin-bottom: 30px;
+}
+
+.col-3 img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.col-3 img:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 91, 150, 0.2);
+}
+h2{
+    text-align: center;
+}
+
+.small-container{
+  max-width: 1700px;
+  margin: auto;
+  padding-left: 25px;
+  padding-right: 25px;
 }
