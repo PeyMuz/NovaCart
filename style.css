@@ -185,8 +185,8 @@ p {
 
 /* CART ICON */
 .cart-icon img {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     filter: brightness(0) invert(1);
     cursor: pointer;
     transition: transform 0.2s ease;
@@ -374,9 +374,9 @@ h2::after {
     padding: 20px 0 60px;
 }
 
-.testimonial .col-3{
+.testimonial .col-3 {
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .testimonial .row {
@@ -410,18 +410,19 @@ h2::after {
     display: block;
     margin: 15px auto 8px auto;
 }
+
 .testimonial-card h4 {
     margin-top: 8px;
     color: #002f4e;
     font-size: 15px;
 }
 
-.testimonial .col-3:hover{
+.testimonial .col-3:hover {
     transform: translateY(-10px);
     box-shadow: 0 12px 30px rgba(0, 91, 150, 0.2);
 }
 
-/*--------------trusted brands--------------*/
+/* TRUSTED BRANDS */
 .brands {
     margin: 100px auto;
 }
@@ -430,7 +431,7 @@ h2::after {
     min-height: unset;
     padding: 20px 6%;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     gap: 40px;
 }
 
@@ -452,73 +453,270 @@ h2::after {
     filter: drop-shadow(0 12px 20px rgba(0, 91, 150, 0.25));
 }
 
-/*-----------------FOOTER------------------------*/
-
-.footer{
+/* FOOTER */
+.footer {
     background: #002f4e;
     color: #fff;
     font-size: 14px;
-    padding: 60px 0 20px;
+    padding: 60px 0 0;
 }
 
 .footer .row {
     min-height: unset;
     padding: 20px 6%;
     align-items: flex-start;
+    gap: 20px;
 }
 
-.footer p{
+.footer p {
+    color: #cce0f5;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-top: 8px;
+}
+
+.footer h3 {
     color: #fff;
+    font-size: 18px;
+    margin-bottom: 16px;
 }
 
-.footer h3{
+.footer ul li {
+    list-style-type: none;
+    font-size: 15px;
+    color: #cce0f5;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.footer ul li:hover {
     color: #fff;
-    margin-bottom: 20px;
-}
-
-.footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4 {
-    min-width: 250px;
-    margin-bottom: 20px;
 }
 
 .footer-col-1 {
-    flex-basis: 30%;
+    flex-basis: 28%;
+    min-width: 220px;
+    margin-bottom: 20px;
 }
 
-.footer-col-2{
-    flex:1;
+.footer-col-2 {
+    flex: 1;
     text-align: center;
+    min-width: 220px;
+    margin-bottom: 20px;
 }
 
-.footer-col-2 img{
-    width: 180px;
-    margin-top: 20px;
+.footer-col-2 img {
+    width: 220px;
+    margin-bottom: 16px;
 }
 
 .footer-col-3, .footer-col-4 {
-    flex-basis: 12%;
+    flex-basis: 14%;
     text-align: center;
+    min-width: 150px;
+    margin-bottom: 20px;
+    margin-left: 40px;
 }
 
-ul {
-    list-style-type: none;
+.app-logo {
+    margin-top: 16px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-.app-logo{
-    margin-top: 20px;
+.app-logo img {
+    width: 130px;
+    height: auto;
 }
 
-.app-logo img{
-    width: 140px;
-}
-
-.footer hr{
-    border:none;
-    background: #fff;
+.footer hr {
+    border: none;
+    background: rgba(255, 255, 255, 0.15);
     height: 1px;
-    margin: 40px 0;
+    margin: 30px 0 0;
 }
 
-.copyright{
-    text-align:center;
+.copyright {
+    text-align: center;
+    font-size: 14px;
+    color: #cce0f5;
+    padding: 20px 0;
+}
+
+/* MENU BUTTON */
+.menu {
+    width: 35px;
+    height: auto !important;
+    cursor: pointer;
+    display: none;
+    filter: brightness(0) invert(1);
+    margin-left: 15px;
+}
+
+/*---------------- MEDIA QUERIES ------------------- */
+@media only screen and (max-width: 800px) {
+    nav ul {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: #333;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-end;
+        padding: 0 30px;
+        z-index: 100;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        display:block;
+    }
+
+    
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+     .cart-icon img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .menu {
+        display: block;
+    }
+}
+
+/*---------------- MOBILE (max 600px) ------------------- */
+@media only screen and (max-width: 600px) {
+
+    /* HERO */
+    .row {
+        flex-direction: column;
+        padding: 40px 5%;
+        min-height: unset;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .text-side {
+        max-width: 100%;
+    }
+
+    .text-side h1 {
+        font-size: 32px;
+        line-height: 44px;
+    }
+
+    .text-side p {
+        font-size: 15px;
+        max-width: 100%;
+    }
+
+    .product-image-container {
+        max-width: 100%;
+        justify-content: center;
+    }
+
+    /* CATEGORIES */
+    .categories .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .col-3 {
+        flex-basis: 100%;
+        width: 100%;
+    }
+
+    .col-3 img {
+        height: 250px;
+    }
+
+    /* PRODUCTS */
+    .products-row {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 5%;
+    }
+
+    .col-4 {
+        flex-basis: 100%;
+        width: 100%;
+        min-width: unset;
+    }
+
+    .col-4 img {
+        height: 220px;
+    }
+
+    /* OFFER */
+    .offer .row {
+        flex-direction: column;
+        gap: 20px;
+        padding: 30px 5%;
+        text-align: center;
+    }
+
+    .offer-img {
+        max-width: 100%;
+    }
+
+    .offer .col-2 h1 {
+        font-size: 17px;
+    }
+
+    /* TESTIMONIALS */
+    .testimonial .row {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 5%;
+    }
+
+    /* BRANDS */
+    .brands .row {
+        gap: 25px;
+        padding: 20px 5%;
+    }
+
+    .col-5 {
+        width: 100px;
+    }
+
+    /* FOOTER */
+    .footer .row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 30px 5%;
+    }
+
+    .footer-col-1,
+    .footer-col-2,
+    .footer-col-3,
+    .footer-col-4 {
+        flex-basis: 100%;
+        min-width: unset;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .app-logo {
+        justify-content: center;
+    }
+
+    .footer-col-3 ul,
+    .footer-col-4 ul {
+        padding: 0;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+     * {
+        max-width: 100%;
+    }
 }
