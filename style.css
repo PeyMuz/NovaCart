@@ -197,14 +197,33 @@ p {
 }
 
 /* CATEGORIES */
+h2 {
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
 
-.categories{
+h2::after {
+    content: '';
+    background: #005b96;
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.categories {
     margin: 70px 0;
 }
+
 .categories .row {
-    gap: 20px; /* ← mas maliit na gap = mas malaki ang cards */
+    gap: 20px;
     padding: 40px 6%;
-    min-height: unset; /* ← tanggalin yung 80vh */
+    min-height: unset;
 }
 
 .col-3 {
@@ -227,41 +246,55 @@ p {
     transform: translateY(-6px);
     box-shadow: 0 12px 30px rgba(0, 91, 150, 0.2);
 }
-h2{
+
+h2 {
     text-align: center;
 }
 
-.small-container{
-  max-width: 1700px;
-  margin: auto;
-  padding-left: 25px;
-  padding-right: 25px;
+.small-container {
+    max-width: 1700px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 .col-3 p {
     text-align: center;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 18px;
     margin-top: 10px;
     color: #002f4e;
 }
 
-.col-4 {
-    flex-basis: 25%;
-    padding: 10px;
-    min-width: 200px;
-    margin-bottom: 50px;
+/* FEATURED PRODUCTS */
+.products-row {
+    min-height: unset;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 40px 6%;
 }
 
-.col-4 img{
+.col-4 {
+    flex-basis: calc(25% - 20px);
+    padding: 10px;
+    min-width: 200px;
+    margin-bottom: 30px;
+}
+
+.col-4 img {
     width: 100%;
-    height: 450px;
+    height: 300px;
     object-fit: cover;
+    background-color: #f9f9f9;
     border-radius: 12px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
 
+.col-4 .rtx-img {
+    object-fit: contain !important;
+}
 
 .col-4 img:hover {
     transform: translateY(-6px);
@@ -281,5 +314,61 @@ h2{
     justify-content: center;
     gap: 4px;
     margin-top: 8px;
-    color: #f5c518; /* Star color */
+    color: #f5c518;
+}
+
+/*Latest products*/
+.iphone17 {
+    object-fit: contain !important;
+}
+
+.cmf{
+    object-fit: contain !important;
+}
+
+/* OFFER SECTION */
+.offer {
+    background: #f9f9f9;
+    padding: 60px 0;
+    margin: 60px 0;
+}
+
+.offer .row {
+    min-height: unset;
+    align-items: center;
+    padding: 40px 6%;
+    gap: 60px;
+}
+
+.offer-img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: contain;
+}
+
+.offer .col-2 {
+    flex: 1;
+}
+
+.offer .col-2 p {
+    font-size: 13px;
+    color: #005b96;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.offer .col-2 h1 {
+    font-size: 22px;
+    line-height: 1.4;
+    color: #002f4e;
+    margin-bottom: 15px;
+}
+
+.offer .col-2 small {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.7;
 }

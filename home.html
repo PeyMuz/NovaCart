@@ -6,74 +6,71 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <title>NovaCart</title>
-    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="icon" type="image/png" href="pics/icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
 
     <div class="navbar">
-    <div class="logo">
-        <a href="home.html">
-            <img src="nova.png" alt="NovaCart Logo">
-        </a>
-    </div>
-    <nav>
-        <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="">Products</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Contact</a></li>
-            <li><a href="">Account</a></li>
-        </ul>
-        <div class="cart-icon">
-            <img src="cart.png" alt="Cart Icon">
+        <div class="logo">
+            <a href="home.html">
+                <img src="pics/nova.png" alt="NovaCart Logo">
+            </a>
         </div>
-    </nav>
-</div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="">Products</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Contact</a></li>
+                <li><a href="">Account</a></li>
+            </ul>
+            <div class="cart-icon">
+                <img src="pics/cart.png" alt="Cart Icon">
+            </div>
+        </nav>
+    </div>
+
     <div class="row">
         <div class="col-2 text-side">
             <h1>Style your space, power your hustle!</h1><br><br>
             <p>Discover the perfect blend of style from high-performance gaming gear to minimalist everyday essentials. We curate the tools you need to elevate your setup and conquer your daily grind.</p>
             <div style="text-align: center;">
-                <a href="" class="btn">Shop Now <img src="bag.png" alt="Bag Icon" class="btn-icon"></a>
+                <a href="" class="btn">Shop Now <img src="pics/bag.png" alt="Bag Icon" class="btn-icon"></a>
             </div>
         </div>
         <div class="col-2 product-image-container">
-            <img src="mixed-prod.png" alt="Mixed Products" class="product-image">
+            <img src="pics/mixed-prod.png" alt="Mixed Products" class="product-image">
         </div>
     </div>
 
     <!---featured categories---->
-
-      <div class ="categories">
+    <div class="categories">
         <div class="small-container">
-          <h2 class="section-title">Featured Categories</h2>
-
-          <div class="row">
-             <div class="col-3">
-                <img src="image1.png" alt="Category 1">
-                <p>Clothes</p>
-             </div>
-             <div class="col-3">
-                <img src="image2.png" alt="Category 2">
-                <p>Sneakers</p>
-             </div>
-             <div class="col-3">
-                <img src="image3.png" alt="Category 3">
-                <p>Accessories</p>
-             </div>
+            <h2>Featured Categories</h2>
+            <div class="row">
+                <div class="col-3">
+                    <img src="pics/image1.png" alt="Category 1">
+                    <p>Clothes</p>
+                </div>
+                <div class="col-3">
+                    <img src="pics/image2.png" alt="Category 2">
+                    <p>Sneakers</p>
+                </div>
+                <div class="col-3">
+                    <img src="pics/image3.png" alt="Category 3">
+                    <p>Accessories</p>
+                </div>
+            </div>
         </div>
-        </div>
-        
+    </div>
 
-      </div>
-
-      <!---featured products---->
-      <div class="small-container">
-        <h2 class="section-title">Featured Products</h2>
-        <div class="row">
+    <!---featured products---->
+    <div class="small-container">
+        <h2>Featured Products</h2>
+        <div class="row products-row">
             <div class="col-4">
-                <img src="T-shirt.png">
+                <img src="pics/T-shirt.png">
                 <h4>Printed T-Shirt</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -84,8 +81,8 @@
                 </div>
                 <p>$19.99</p>
             </div>
-             <div class="col-4">
-                <img src="rtx 50.png">
+            <div class="col-4">
+                <img src="pics/rtx 50.png" class="rtx-img">
                 <h4>RTX 5090 Graphics Card</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -96,9 +93,9 @@
                 </div>
                 <p>$19.99</p>
             </div>
-             <div class="col-4">
-                <img src="T-shirt.png">
-                <h4>Printed T-Shirt</h4>
+            <div class="col-4">
+                <img src="pics/Ben-10.png">
+                <h4>Ben 10 kid's short</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -106,11 +103,11 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star-half-alt"></i>
                 </div>
-                <p>$19.99</p>
+                <p>$9.99</p>
             </div>
-             <div class="col-4">
-                <img src="T-shirt.png">
-                <h4>Printed T-Shirt</h4>
+            <div class="col-4">
+                <img src="pics/women dress.png">
+                <h4>Aria Linen Shirt Dress</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -118,12 +115,78 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star-half-alt"></i>
                 </div>
-                <p>$19.99</p>
+                <p>$10.99</p>
             </div>
         </div>
-      </div>
 
-
+        <!---latest products---->
+        <h2>Latest Products</h2>
+         <div class="row products-row">
+            <div class="col-4">
+                <img src="pics/omnitrix.png">
+                <h4>Omnitrix fx (2006) Limited Edition</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                </div>
+                <p>$9.99</p>
+            </div>
+            <div class="col-4">
+                <img src="pics/Red.png">
+                <h4>Redragon Fizz RGB Wired Mechanical Gaming Keyboard (Black) (Dust-Proof Red) (K617-RGB)</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                </div>
+                <p>$19.99</p>
+            </div>
+            <div class="col-4">
+                <img src="pics/cmf.png" class="cmf">
+                <h4>CMF by Nothing Watch 3 Pro Smart Watch for Men Women, Bluetooth Call AI Energy Score, 1.43” Heart Rate Tracking, Sleep Monitor, GPS & 130 Sport Modes, Fitness Tracker for Android iOS, IP68 Dark Grey</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                </div>
+                <p>$59</p>
+            </div>
+            <div class="col-4">
+                <img src="pics/iphone17.png" class="iphone17">
+                <h4>Apple iPhone 17 5G A3521 512GB Black (Dual Nano Sim)</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                </div>
+                <p>$1,499</p>
+            </div>
+        </div>
+    </div>
+    <!---Offer---->
+    <div class="offer">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-2">
+                    <img src="pics/gamingpc.png" class="offer-img">
+                </div>
+                <div class="col-2">
+                    <p>Exclusive product offer!</p>
+                    <h1>KOTIN Prebuilt Gaming PC Desktop, AMD Ryzen 5 9600X up to 5.4GHz, GeForce RTX 5060 8GB GDDR7, 16GB DDR5-6000, 1TB PCIe 4.0 NVMe SSD, 650W 80+ Gold PSU, WiFi 7, Win 11 Home, 1080p/1440p Gaming Tower</h1>
+                    <small>Experience the ultimate gaming performance with our exclusive Gaming PC 2026! Powered by the latest RTX 5090 graphics card, this beast delivers stunning visuals and lightning-fast speeds. Whether you're a hardcore gamer or a content creator, the Gaming PC 2026 is designed to elevate your experience to new heights. Don't miss out on this limited-time offer – upgrade your setup today and dominate the gaming world!</small>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
