@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <title>Product Details - NovaCart</title>
+    <link rel="icon" type="image/png" href="pics/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+            <a href="home.html">
+                <img src="pics/nova.png" alt="NovaCart Logo">
+            </a>
+        </div>
+        <nav>
+            <ul class="menu-items">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Contact</a></li>
+                <li><a href="">Account</a></li>
+            </ul>
+            <div class="cart-icon">
+                <img src="pics/cart.png" alt="Cart Icon">
+            </div>
+            <img src="https://freesvg.org/img/menu-icon.png" alt="menu" class="menu" onclick="menuToggle()">
+        </nav>
+    </div>
+
+    <!--------------------------PRODUCT DETAILS---------------------------->
+
+    <div class="small-container single-product">
+        <div class="row">
+            <div class="col-2">
+                <img src="pics/iphone17.png" width="100%">
+                <div class="small-img-row">
+                    <div class="small-img-col">
+                        <img src="pics/iphone17.png" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="pics/iphone17side.png" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="pics/iphone17side.png" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="pics/iphone17anotherside.png" width="100%" class="small-img">
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <p>Electronics / Smartphones</p>
+                <h1>Apple iPhone 17 512GB</h1>
+                <h4>$1,499</h4>
+                <select>
+                    <option>Select Color</option>
+                    <option>Black</option>
+                    <option>White</option>
+                    <option>Red</option>
+                    <option>Blue</option>
+                </select>
+                <input type="number" value="1">
+                <a href="" class="btn">Add to Cart</a>
+                <h3>Product Details<i class="fa fa-indent"></i></h3>
+                <p>This is a high-end smartphone with advanced features and a sleek design. </p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="small-container">
+        <div class="row row-2">
+            <h2>All Products</h2>
+            <select>
+                <option>Default Sorting</option>
+                <option>Sort by price</option>
+                <option>Sort by popularity</option>
+                <option>Sort by rating</option>
+                <option>Sort by name</option>
+            </select>
+        </div>
+
+        <div class="row products-row">
+
+            <!-- 1 -->
+            <div class="col-4">
+                <img src="pics/T-shirt.png">
+                <h4>Printed T-Shirt</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                </div>
+                <p>$19.99</p>
+            </div>
+
+            <!-- 2 -->
+            <div class="col-4">
+                <img src="pics/rtx 50.png" class="rtx-img">
+                <h4>RTX 5090 Graphics Card</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                </div>
+                <p>$1,999.99</p>
+            </div>
+
+            <!-- 3 -->
+            <div class="col-4">
+                <img src="pics/Ben-10.png">
+                <h4>Ben 10 Kid's Short</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                </div>
+                <p>$9.99</p>
+            </div>
+
+            <!-- 4 -->
+            <div class="col-4">
+                <img src="pics/women dress.png">
+                <h4>Aria Linen Shirt Dress</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                </div>
+                <p>$10.99</p>
+            </div>
+
+           
+            
+
+           
+
+        </div>
+    </div>
+
+    <!--------------------------FOOTER---------------------------->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for Android and iOS mobile phone.</p>
+                    <div class="app-logo">
+                        <img src="pics/play-store.png" alt="Play Store">
+                        <img src="pics/app-store.png" alt="App Store">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="pics/nova.png" alt="NovaCart Logo">
+                    <p>Our Purpose Is To Make the people feel pleasure and benefits in our online platform</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Blog Post</li>
+                        <li>Return Policy</li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Follow us</h3>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                        <li>Instagram</li>
+                        <li>LinkedIn</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">Copyright 2026 - NovaCart</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

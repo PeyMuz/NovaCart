@@ -638,6 +638,121 @@ select{
     color: #fff;
 }
 
+
+.footer .container {
+    max-width: 1700px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+
+/*-----------single PRODUCT DETAILS------------------*/
+
+.single-product {
+    margin-top: 80px;
+}
+
+.single-product .row {
+    align-items: center;
+    gap: 60px;
+    min-height: unset;
+    padding: 60px 6%;
+}
+
+.single-product .col-2 {
+    padding: 2px;
+}
+
+.single-product .col-2:first-child {
+    flex: 0 0 38%;
+    max-width: 42%;
+}
+
+.single-product .col-2:last-child {
+     flex: 0 0 45%;        /* <- fixed 45% width */
+    max-width: 45%;
+    padding-left: 40px; 
+}
+
+.single-product .col-2 img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: contain;
+    background: #f9f9f9;
+    padding: 0;
+}
+
+.single-product h1 {
+    font-size: 26px;
+    color: #002f4e;
+    margin-bottom: 10px;
+}
+
+.single-product h4 {
+    margin: 20px 0;
+    font-size: 22px;
+    font-weight: bold;
+    color: #005b96;
+}
+
+.single-product h3 {
+    margin-top: 20px;
+}
+.single-product select {
+    display: block;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.single-product input {
+    width: 50px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 20px;
+    margin-right: 10px;
+    border: 1px solid #005b96;
+}
+
+.single-product .btn {
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.single-product .fa {
+    color: #005b96;
+    margin-left: 10px;
+}
+
+.small-img-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    gap: 8px;
+}
+
+.small-img-col {
+    flex-basis: 24%;
+    cursor: pointer;
+}
+
+.small-img-col img {
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease;
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    
+}
+
+.small-img-col img:hover {
+    border-color: #005b96;
+}
+
+
 /*---------------- MOBILE (max 600px) ------------------- */
 @media only screen and (max-width: 600px) {
 
