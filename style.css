@@ -749,6 +749,19 @@ select{
     border-color: #005b96;
 }
 
+/*--------------------------cart item details----------------------------*/
+
+.cart-page{
+    margin: 80px auto;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+
 
 /*---------------- MOBILE (max 600px) ------------------- */
 @media only screen and (max-width: 600px) {
