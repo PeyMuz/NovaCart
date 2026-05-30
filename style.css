@@ -839,6 +839,61 @@ th:last-child {
 }
 
 
+/*----------Account Page--------------*/
+.account-page{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #e8f1fc 0%, #c8ddf7 40%, #a8c8f5 70%, #6aa3e8 100%);
+}
+
+
+.account-card{
+    display:flex;
+    width: 100%;
+    max-width: 860px;
+    min-height: 520px;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 24px 64px rgba(0, 47, 78, 0.18);
+}
+
+.hidden {
+    display: none;
+}
+
+.account-panel.active {
+    display: block;
+}
+
+.account-welcome-text.active {
+    display: block;
+}
+
+/*For the left side*/
+
+.account-left{
+    flex:1;
+    background: linear-gradient(160deg, #ddeeff 0%, #b8d4f5 50%, #85b5ee 100%);
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center ;
+    padding: 3rem 2rem;
+    text-align: center; 
+}
+
+.account-right{
+    width:360px;
+    background: #fff;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2.5rem 2rem;
+}
+
+
 /*--- MEDIA QUERIES (TABLETS & RESPONSIVE NAV) ---*/
 @media only screen and (max-width: 800px) {
     nav ul {
