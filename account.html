@@ -11,20 +11,20 @@
 <body>
 
     <div class="account-page">
-
         <div class="account-card">
 
-            <!-- LEFT PANEL -->
             <div class="account-left">
-                <h1 class="account-brand">Nova<span>Cart</span></h1>
-                <p class="account-tagline-sub">Discover. Choose. Own.</p>
-                <p class="account-tagline">Your one-stop shop for everything you love.</p>
+                <canvas id="bgCanvas"></canvas>
+
+                <div class="account-left-content">
+                    <h1 class="account-brand">Nova<span>Cart</span></h1>
+                    <p class="account-tagline-sub">Discover. Choose. Own.</p>
+                    <p class="account-tagline">Your one-stop shop for everything you love.</p>
+                </div>
             </div>
 
-            <!-- RIGHT PANEL -->
             <div class="account-right">
 
-                <!-- WELCOME TEXT -->
                 <div id="welcome-signin" class="account-welcome-text active">
                     <h2 class="account-welcome">Welcome back!</h2>
                     <p class="account-welcome-sub">Sign in to your account to continue.</p>
@@ -34,13 +34,11 @@
                     <p class="account-welcome-sub">Join us today and discover amazing products!</p>
                 </div>
 
-                <!-- TABS -->
                 <div class="account-tabs">
                     <button class="account-tab active" id="tab-signin">Sign In</button>
                     <button class="account-tab" id="tab-signup">Sign Up</button>
                 </div>
 
-                <!-- SIGN IN FORM -->
                 <div id="signin" class="account-panel active">
                     <div class="account-field">
                         <label>Email Address</label>
@@ -61,7 +59,6 @@
                     </div>
                 </div>
 
-                <!-- SIGN UP FORM -->
                 <div id="signup" class="account-panel hidden">
                     <div class="account-row-2">
                         <div class="account-field">
@@ -101,6 +98,6 @@
         </div>
     </div>
 
-    <script src="index.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

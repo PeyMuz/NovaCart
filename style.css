@@ -839,8 +839,7 @@ th:last-child {
 }
 
 
-/*----------Account Page--------------*/
-/*----------Account Page--------------*/
+/*--- ACCOUNT PAGE ---*/
 .account-page {
     position: fixed;
     top: 0;
@@ -858,15 +857,23 @@ th:last-child {
 }
 
 .hidden {
+    display: none !important;
+}
+
+.account-panel {
     display: none;
 }
 
 .account-panel.active {
-    display: block;
+    display: block !important;
+}
+
+.account-welcome-text {
+    display: none;
 }
 
 .account-welcome-text.active {
-    display: block;
+    display: block !important;
 }
 
 .account-left {
@@ -878,6 +885,24 @@ th:last-child {
     justify-content: center;
     padding: 3rem 2rem;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Canvas background */
+#bgCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Content above canvas */
+.account-left-content {
+    position: relative;
+    z-index: 1;
 }
 
 .account-right {
@@ -889,6 +914,7 @@ th:last-child {
     padding: 3rem 4rem;
     box-shadow: -8px 0 40px rgba(0, 47, 120, 0.1);
 }
+
 .account-brand {
     font-size: 70px;
     font-weight: 700;
@@ -1118,6 +1144,7 @@ th:last-child {
     gap: 10px;
 }
 
+
 /*--- MEDIA QUERIES (TABLETS & RESPONSIVE NAV) ---*/
 @media only screen and (max-width: 800px) {
     nav ul {
@@ -1280,7 +1307,7 @@ th:last-child {
 
     .footer-col-2 img {
         width: 160px;
-        margin: 0 auto 12px auto; /* fixed: was 166px bottom margin */
+        margin: 0 auto 12px auto;
     }
 
     .footer-right-wrapper {
@@ -1434,5 +1461,30 @@ th:last-child {
     .total-price table td:last-child {
         text-align: right !important;
         font-weight: 700;
+    }
+
+    /* ---- ACCOUNT PAGE MOBILE ---- */
+    .account-card {
+        flex-direction: column;
+    }
+
+    .account-left {
+        flex: 0 0 220px;
+        padding: 2rem 1.5rem;
+    }
+
+    .account-brand {
+        font-size: 42px;
+    }
+
+    .account-tagline {
+        font-size: 13px;
+        white-space: normal;
+    }
+
+    .account-right {
+        width: 100%;
+        padding: 2rem 1.5rem;
+        overflow-y: auto;
     }
 }
