@@ -3,31 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>About - NovaCart</title>
+    <link rel="icon" type="image/png" href="pics/icon.png">
 </head>
 <body>
 
-     <nav>
+    <div class="navbar">
         <div class="logo">
-            <a href="home.html">NovaCart</a>
+            <a href="home.html">
+                <img src="pics/nova.png" alt="NovaCart Logo">
+            </a>
         </div>
-        <ul>
-           <li><a href="home.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="cart.html">Cart</a></li>
-            <li><a href="about.html">About</a></li>
-             <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+        <nav>
+            <ul class="menu-items">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="account.html">Account</a></li>
+            </ul>
+            <div class="cart-icon">
+                <a href="cart.html"><img src="pics/cart.png" alt="Cart Icon"></a>
+            </div>
+            <img src="https://freesvg.org/img/menu-icon.png" alt="menu" class="menu" onclick="menuToggle()">
+        </nav>
+    </div>
 
-    <h1>About US</h1>
-    <p>Welcome to our website! We are dedicated to providing you with the best experience possible. Our team is passionate about delivering high-quality content and services to our users.</p>
-    <p>Our mission is to create a platform that connects people and fosters a sense of community. We believe in the power of collaboration and strive to bring people together through our website.</p>
-    <p>Thank you for visiting our site, and we hope you enjoy your time here!</p>
-    
+    <!-- ABOUT HERO -->
+    <div class="small-container">
+        <div class="row">
+            <div class="col-2 text-side">
+                <h1>We're NovaCart</h1>
+                <p>NovaCart was built with one goal in mind — to give you access to the best products at the best prices. From tech gear to everyday essentials, we curate everything you need in one place.</p>
+                <p>We started as a small team of passionate shoppers who wanted a better online shopping experience. Today, we serve thousands of happy customers across the Philippines and beyond.</p>
+                <a href="products.html" class="btn">Shop Now <img src="pics/bag.png" alt="" class="btn-icon"></a>
+            </div>
+            <div class="col-2 product-image-container">
+                <img src="pics/together.png" alt="About NovaCart" class="product-image">
+            </div>
+        </div>
+    </div>
 
-    <footer>
-    <p>&copy; 2024 NovaCart. All rights reserved.</p>
-    </footer>
+    <!-- STATS -->
+    <div class="offer">
+        <div class="small-container">
+            <div class="row" style="justify-content: center; gap: 60px; text-align: center;">
+                <div>
+                    <h2 style="font-size: 48px; color: #005b96;">10K+</h2>
+                    <p>Happy Customers</p>
+                </div>
+                <div>
+                    <h2 style="font-size: 48px; color: #005b96;">500+</h2>
+                    <p>Products Available</p>
+                </div>
+                <div>
+                    <h2 style="font-size: 48px; color: #005b96;">4.9★</h2>
+                    <p>Average Rating</p>
+                </div>
+                <div>
+                    <h2 style="font-size: 48px; color: #005b96;">24/7</h2>
+                    <p>Customer Support</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MISSION -->
+    <div class="small-container">
+        <div class="row">
+            <div class="col-2 text-side">
+                <h1>Our Mission</h1>
+                <p>To make premium quality products accessible to everyone. We believe that great products shouldn't cost a fortune, and that shopping online should be simple, safe, and enjoyable.</p>
+                <p>We work directly with trusted suppliers to bring you authentic products at competitive prices — no middlemen, no markups.</p>
+            </div>
+            <div class="col-2 product-image-container">
+                <img src="pics/sipag.png" alt="Our Mission" class="product-image">
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for Android and iOS mobile phone.</p>
+                    <div class="app-logo">
+                        <img src="pics/play-store.png" alt="Play Store">
+                        <img src="pics/app-store.png" alt="App Store">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="pics/nova.png" alt="NovaCart Logo">
+                    <p>Our Purpose Is To Make the people feel pleasure and benefits in our online platform</p>
+                </div>
+                <div class="footer-right-wrapper">
+                    <div class="footer-col-3">
+                        <h3>Useful Links</h3>
+                        <ul>
+                            <li>Coupons</li>
+                            <li>Blog Post</li>
+                            <li>Return Policy</li>
+                            <li>Join Affiliate</li>
+                        </ul>
+                    </div>
+                    <div class="footer-col-4">
+                        <h3>Follow us</h3>
+                        <ul>
+                            <li>Facebook</li>
+                            <li>Twitter</li>
+                            <li>Instagram</li>
+                            <li>LinkedIn</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">Copyright 2026 - NovaCart</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
