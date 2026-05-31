@@ -245,17 +245,6 @@ nav ul li a:hover {
 }
 
 .buy-now-btn:hover {
-    background: #0a70b4;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(255, 107, 53, 0.4);
-}
-
-.buy-now-btn:active {
-    background: #43a6e7;
-    transform: translateY(0px) scale(0.98);
-}
-
-.buy-now-btn:hover {
     background: #0563a1;
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(255, 107, 53, 0.4);
@@ -642,6 +631,7 @@ h2::after {
     width: 100%;
 }
 
+
 /*--- ALL PRODUCTS PAGE ---*/
 .row-2 {
     justify-content: space-between;
@@ -797,6 +787,27 @@ select {
 
 
 /*--- SHOPPING CART PAGE ---*/
+.cart-icon {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: red;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
 .cart-page {
     margin: 80px auto 40px;
     flex: 1;
@@ -818,10 +829,20 @@ table {
     font-weight: 600;
 }
 
+.cart-page table th:last-child {
+    text-align: right;
+    padding-right: 20px;
+}
+
 .cart-page table td {
     padding: 20px 0;
     border-bottom: 1px solid #eee;
     vertical-align: middle;
+}
+
+.cart-page table td:last-child {
+    text-align: right;
+    padding-right: 20px;
 }
 
 .cart-info {
@@ -872,11 +893,7 @@ table {
     max-width: 400px;
 }
 
-td:last-child {
-    text-align: right;
-}
-
-th:last-child {
+.total-price table td:last-child {
     text-align: right;
 }
 
@@ -931,7 +948,6 @@ th:last-child {
     overflow: hidden;
 }
 
-/* Canvas background */
 #bgCanvas {
     position: absolute;
     inset: 0;
@@ -941,7 +957,6 @@ th:last-child {
     z-index: 0;
 }
 
-/* Content above canvas */
 .account-left-content {
     position: relative;
     z-index: 1;
@@ -1187,7 +1202,7 @@ th:last-child {
 }
 
 
-/*--- MEDIA QUERIES (TABLETS & RESPONSIVE NAV) ---*/
+/*--- MEDIA QUERIES (TABLETS) ---*/
 @media only screen and (max-width: 800px) {
     nav ul {
         position: absolute;
@@ -1221,7 +1236,7 @@ th:last-child {
 }
 
 
-/*--- MEDIA QUERIES (MOBILE DEVICES) ---*/
+/*--- MEDIA QUERIES (MOBILE) ---*/
 @media only screen and (max-width: 600px) {
     .row {
         flex-direction: column;
@@ -1310,7 +1325,6 @@ th:last-child {
         width: 100px;
     }
 
-    /* ---- FOOTER MOBILE ---- */
     .footer {
         width: 100%;
         left: 0;
@@ -1383,7 +1397,6 @@ th:last-child {
         justify-content: center;
     }
 
-    /* ---- SINGLE PRODUCT MOBILE ---- */
     .single-product .row {
         text-align: left;
     }
@@ -1397,7 +1410,6 @@ th:last-child {
         line-height: 32px;
     }
 
-    /* ---- CART PAGE MOBILE ---- */
     .cart-page {
         padding: 20px 4%;
     }
@@ -1476,7 +1488,6 @@ th:last-child {
         color: #555;
     }
 
-    /* ---- TOTAL PRICE MOBILE ---- */
     .total-price {
         justify-content: center;
         margin-top: 30px;
@@ -1505,7 +1516,6 @@ th:last-child {
         font-weight: 700;
     }
 
-    /* ---- ACCOUNT PAGE MOBILE ---- */
     .account-card {
         flex-direction: column;
     }

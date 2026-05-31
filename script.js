@@ -1,7 +1,112 @@
-// ----------- SIDE MENU TOGGLE -----------
+// ============================================================
+//  PRODUCT DATABASE
+// ============================================================
+const PRODUCTS = {
+    tshirt: {
+        name: "Printed T-Shirt",
+        price: 19.99,
+        category: "Fashion / Men's Clothing",
+        img: "pics/T-shirt.png",
+        description: "A comfortable everyday printed t-shirt made from breathable cotton. Perfect for casual outings and relaxed styles.",
+        variants: ["Select Size", "XS", "S", "M", "L", "XL", "XXL"]
+    },
+    rtx5090: {
+        name: "RTX 5090 Graphics Card",
+        price: 1999.99,
+        category: "Electronics / PC Components",
+        img: "pics/rtx 50.png",
+        description: "NVIDIA's flagship GPU featuring next-gen ray tracing and AI-powered performance. Built for 4K gaming and professional workloads.",
+        variants: ["Select Model", "Founders Edition", "ASUS ROG", "MSI Gaming X"]
+    },
+    ben10: {
+        name: "Ben 10 Kid's Short",
+        price: 9.99,
+        category: "Fashion / Kids",
+        img: "pics/Ben-10.png",
+        description: "Fun and colorful Ben 10 themed shorts for kids. Made from soft, durable fabric perfect for active play.",
+        variants: ["Select Size", "3-4 yrs", "5-6 yrs", "7-8 yrs", "9-10 yrs"]
+    },
+    ariadress: {
+        name: "Aria Linen Shirt Dress",
+        price: 10.99,
+        category: "Fashion / Women's Clothing",
+        img: "pics/women dress.png",
+        description: "A breezy linen shirt dress perfect for warm days. Features a relaxed fit and elegant minimalist design.",
+        variants: ["Select Size", "XS", "S", "M", "L", "XL"]
+    },
+    omnitrix: {
+        name: "Omnitrix fx Limited Edition",
+        price: 9.99,
+        category: "Toys / Collectibles",
+        img: "pics/omnitrix.png",
+        description: "Limited edition Omnitrix replica with sound effects and light-up features. A must-have collectible for Ben 10 fans.",
+        variants: ["Select Edition", "Standard", "Limited Edition"]
+    },
+    redragon: {
+        name: "Redragon Fizz RGB Keyboard",
+        price: 19.99,
+        category: "Electronics / Peripherals",
+        img: "pics/Red.png",
+        description: "A compact TKL mechanical keyboard with per-key RGB lighting and tactile clicky switches. Great for gaming and typing.",
+        variants: ["Select Switch", "Red Switch", "Blue Switch", "Brown Switch"]
+    },
+    cmfwatch: {
+        name: "CMF Watch 3 Pro",
+        price: 59,
+        category: "Electronics / Wearables",
+        img: "pics/cmf.png",
+        description: "A stylish and affordable smartwatch with AMOLED display, health tracking, and up to 7 days battery life.",
+        variants: ["Select Color", "Black", "Silver", "Blue"]
+    },
+    iphone17: {
+        name: "Apple iPhone 17 512GB",
+        price: 1499,
+        category: "Electronics / Smartphones",
+        img: "pics/iphone17.png",
+        description: "Apple's latest flagship smartphone featuring a stunning display, next-gen A-series chip, and an advanced camera system.",
+        variants: ["Select Color", "Black", "White", "Desert Gold", "Ultramarine"]
+    },
+    jbl: {
+        name: "JBL Tune Flex Wireless Earbuds",
+        price: 49.99,
+        category: "Electronics / Audio",
+        img: "https://m.media-amazon.com/images/I/61PPlQVg8xL._AC_SL1500_.jpg",
+        description: "True wireless earbuds with JBL Pure Bass Sound, active noise cancellation, and up to 32 hours total playback.",
+        variants: ["Select Color", "Black", "White", "Blue", "Purple"]
+    },
+    coofandy: {
+        name: "COOFANDY Men's Linen Beach Shirt",
+        price: 29.99,
+        category: "Fashion / Men's Clothing",
+        img: "https://m.media-amazon.com/images/I/71p9qhn9XbL._AC_SX569_.jpg",
+        description: "A lightweight linen shirt perfect for beach days, casual outings, or summer events. Breathable and stylish.",
+        variants: ["Select Size", "S", "M", "L", "XL", "XXL"]
+    },
+    airmax: {
+        name: "Nike Air Max 270 Sneakers",
+        price: 129.99,
+        category: "Fashion / Footwear",
+        img: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSfQQY-hLHvndn3ckzEcnGuYQx19MqXztz7il9a-z4PfZ9sidxDr45haWxlmr5l7jNcYqvxjYI9KNKmWVfEVD0IK_BivnkJnbw0wxTSX7iu5hm0eWNyc3bzbg",
+        description: "Nike's tallest Air unit yet delivers an incredibly smooth ride. Lifestyle sneaker with bold style and all-day comfort.",
+        variants: ["Select Size", "7", "8", "9", "10", "11", "12"]
+    },
+    mxmaster: {
+        name: "Logitech MX Master 3S Mouse",
+        price: 89.99,
+        category: "Electronics / Peripherals",
+        img: "https://m.media-amazon.com/images/I/61CGHv6kmWL._AC_SX569_.jpg",
+        description: "The ultimate precision mouse for creators and professionals. Features MagSpeed electromagnetic scrolling and 8K DPI sensor.",
+        variants: ["Select Color", "Graphite", "Pale Grey"]
+    }
+};
+
+
+// ============================================================
+//  SIDE MENU TOGGLE
+// ============================================================
 let menuitems = document.getElementsByClassName("menu-items")[0];
 
-function menuToggle(){
+function menuToggle() {
     if (menuitems) {
         if (menuitems.style.maxHeight === "200px") {
             menuitems.style.maxHeight = "0px";
@@ -13,58 +118,226 @@ function menuToggle(){
     }
 }
 
-// ----------- PRODUCT GALLERY -----------
-let productImg = document.getElementById("productImg");
-let smallImg = document.getElementsByClassName("small-img");
 
-if (productImg && smallImg.length >= 4) {
-    smallImg[0].onclick = function(){ productImg.src = smallImg[0].src; }
-    smallImg[1].onclick = function(){ productImg.src = smallImg[1].src; }
-    smallImg[2].onclick = function(){ productImg.src = smallImg[2].src; }
-    smallImg[3].onclick = function(){ productImg.src = smallImg[3].src; }
+// ============================================================
+//  CART HELPERS
+// ============================================================
+let cart = JSON.parse(localStorage.getItem('novacart')) || [];
+
+function saveCart() {
+    localStorage.setItem('novacart', JSON.stringify(cart));
 }
 
-// ----------- TAB SWITCHING (account.html) -----------
+function updateCartCount() {
+    const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+
+    document.querySelectorAll('.cart-icon').forEach(icon => {
+        let badge = icon.querySelector('.cart-badge');
+        if (!badge) {
+            badge = document.createElement('span');
+            badge.classList.add('cart-badge');
+            icon.appendChild(badge);
+        }
+
+        if (totalItems > 0) {
+            badge.textContent = totalItems;
+            badge.style.display = 'flex';
+        } else {
+            badge.style.display = 'none';
+        }
+    });
+}
+function addToCart(name, price, img) {
+    const existing = cart.find(item => item.name === name);
+    if (existing) {
+        existing.qty += 1;
+    } else {
+        cart.push({ name, price, img, qty: 1 });
+    }
+    saveCart();
+    updateCartCount();
+}
+
+
+// ============================================================
+//  PRODUCTS PAGE — Buy Now → redirect to product-details
+// ============================================================
+const buyNowBtns = document.querySelectorAll('.buy-now-btn');
+buyNowBtns.forEach(btn => {
+    btn.addEventListener('click', function () {
+        const id = this.dataset.id;
+        if (id) {
+            window.location.href = `product-details.html?id=${id}`;
+        }
+    });
+});
+
+
+// ============================================================
+//  PRODUCT DETAILS PAGE — load product from URL param
+// ============================================================
 document.addEventListener("DOMContentLoaded", () => {
 
-    // --- Tab logic ---
-    const tabSignin   = document.getElementById('tab-signin');
-    const tabSignup   = document.getElementById('tab-signup');
-    const panelSignin = document.getElementById('signin');
-    const panelSignup = document.getElementById('signup');
-    const welcomeSignin = document.getElementById('welcome-signin');
-    const welcomeSignup = document.getElementById('welcome-signup');
+    // --- Product Details Page ---
+    const productImg = document.getElementById('productImg');
+    const productName = document.getElementById('product-name');
+    const productPrice = document.getElementById('product-price');
+    const productCategory = document.getElementById('product-category');
+    const productDescription = document.getElementById('product-description');
+    const addToCartBtn = document.getElementById('add-to-cart-btn');
+    const variantSelect = document.querySelector('.single-product select');
+    const relatedContainer = document.getElementById('related-products');
 
-    if (tabSignin && tabSignup) {
-        function switchTab(tab) {
-            if (tab === 'signin') {
-                tabSignin.classList.add('active');
-                panelSignin.classList.add('active');
-                welcomeSignin.classList.add('active');
-                tabSignup.classList.remove('active');
-                panelSignup.classList.remove('active');
-                welcomeSignup.classList.remove('active');
-            } else {
-                tabSignup.classList.add('active');
-                panelSignup.classList.add('active');
-                welcomeSignup.classList.add('active');
-                tabSignin.classList.remove('active');
-                panelSignin.classList.remove('active');
-                welcomeSignin.classList.remove('active');
+    if (productImg && productName) {
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        const product = PRODUCTS[id];
+
+        if (product) {
+            // Set page title
+            document.title = product.name + " - NovaCart";
+
+            // Fill in product details
+            productImg.src = product.img;
+            productName.textContent = product.name;
+            productPrice.textContent = "$" + product.price.toFixed(2);
+            productCategory.textContent = product.category;
+            productDescription.textContent = product.description;
+
+            // Fill small gallery images (all same for now)
+            const smallImgs = document.querySelectorAll('.small-img');
+            smallImgs.forEach(img => { img.src = product.img; });
+
+            // Small image gallery click
+            smallImgs.forEach(img => {
+                img.onclick = function () { productImg.src = this.src; };
+            });
+
+            // Fill variant select
+            if (variantSelect && product.variants) {
+                variantSelect.innerHTML = '';
+                product.variants.forEach(v => {
+                    const opt = document.createElement('option');
+                    opt.textContent = v;
+                    variantSelect.appendChild(opt);
+                });
             }
+
+            // Add to Cart button
+            if (addToCartBtn) {
+                addToCartBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const qty = parseInt(document.getElementById('product-qty').value) || 1;
+                    for (let i = 0; i < qty; i++) {
+                        addToCart(product.name, product.price, product.img);
+                    }
+                    this.textContent = '✓ Added to Cart!';
+                    this.style.background = '#28a745';
+                    setTimeout(() => {
+                        this.textContent = 'Add to Cart';
+                        this.style.background = '';
+                    }, 1500);
+                });
+            }
+
+            // Related products — show 4 random others
+            if (relatedContainer) {
+                const others = Object.entries(PRODUCTS).filter(([key]) => key !== id);
+                const shuffled = others.sort(() => 0.5 - Math.random()).slice(0, 4);
+                relatedContainer.innerHTML = shuffled.map(([key, p]) => `
+                    <div class="col-4">
+                        <img src="${p.img}" onclick="window.location.href='product-details.html?id=${key}'" style="cursor:pointer">
+                        <h4>${p.name}</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-alt"></i>
+                        </div>
+                        <p>$${p.price.toFixed(2)}</p>
+                        <button class="buy-now-btn" onclick="window.location.href='product-details.html?id=${key}'">Buy now</button>
+                    </div>
+                `).join('');
+            }
+
+        } else {
+            // Product not found
+            productName.textContent = "Product not found.";
+            productDescription.textContent = "Please go back to the products page.";
         }
-        tabSignin.addEventListener('click', () => switchTab('signin'));
-        tabSignup.addEventListener('click', () => switchTab('signup'));
     }
 
-    // ----------- ANIMATED CANVAS BACKGROUND (account.html) -----------
+
+    // ============================================================
+    //  CART PAGE — render cart from localStorage
+    // ============================================================
+    const cartBody = document.getElementById('cart-items-body');
+    const cartEmptyMsg = document.getElementById('cart-empty-msg');
+    const cartTotals = document.getElementById('cart-totals');
+
+    if (cartBody) {
+        renderCart();
+    }
+
+    function renderCart() {
+        cart = JSON.parse(localStorage.getItem('novacart')) || [];
+
+        if (cart.length === 0) {
+            cartBody.innerHTML = '';
+            cartEmptyMsg.style.display = 'block';
+            cartTotals.style.display = 'none';
+            return;
+        }
+
+        cartEmptyMsg.style.display = 'none';
+        cartTotals.style.display = '';
+
+        cartBody.innerHTML = cart.map((item, index) => {
+            const itemPrice = parseFloat(item.price) || 0;
+            const subtotal = (itemPrice * item.qty).toFixed(2);
+            return `
+                <tr>
+                    <td>
+                        <div class="cart-info">
+                            <img src="${item.img}" alt="${item.name}">
+                            <div>
+                                <p>${item.name}</p>
+                                <small>Price: $${itemPrice.toFixed(2)}</small>
+                                <a href="#" onclick="removeFromCart(${index}); return false;">Remove</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="number" value="${item.qty}" min="1"
+                            onchange="updateQty(${index}, this.value)">
+                    </td>
+                    <td>$${subtotal}</td>
+                </tr>
+            `;
+        }).join('');
+
+        // Calculate totals
+        const subtotal = cart.reduce((sum, item) => {
+            return sum + (parseFloat(item.price) || 0) * item.qty;
+        }, 0);
+        const tax = subtotal * 0.10;
+        const total = subtotal + tax;
+
+        document.getElementById('subtotal-val').textContent = '$' + subtotal.toFixed(2);
+        document.getElementById('tax-val').textContent = '$' + tax.toFixed(2);
+        document.getElementById('total-val').innerHTML = '<strong>$' + total.toFixed(2) + '</strong>';
+    }
+
+
+    // ============================================================
+    //  ANIMATED CANVAS BACKGROUND (account.html)
+    // ============================================================
     const canvas = document.getElementById('bgCanvas');
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
 
     function resize() {
-        canvas.width  = canvas.offsetWidth;
+        canvas.width = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
     }
     resize();
@@ -77,17 +350,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const shapes = [];
 
-    // Big filled circles
     [
-        { x: 0.08, y: 0.85, r: 90,  col: '#2a7de1', op: 1    },
-        { x: 0.95, y: 0.92, r: 70,  col: '#1a6fd4', op: 1    },
-        { x: 0.02, y: 0.15, r: 50,  col: '#4da6ff', op: 0.85 },
+        { x: 0.08, y: 0.85, r: 90, col: '#2a7de1', op: 1 },
+        { x: 0.95, y: 0.92, r: 70, col: '#1a6fd4', op: 1 },
+        { x: 0.02, y: 0.15, r: 50, col: '#4da6ff', op: 0.85 },
     ].forEach(c => shapes.push({
         type: 'circle', xr: c.x, yr: c.y, r: c.r, col: c.col, op: c.op,
         t: rand(0, Math.PI * 2), speed: rand(0.004, 0.009)
     }));
 
-    // White gloss balls
     [
         { x: 0.22, y: 0.55, r: 18, ax: 30, ay: 30 },
         { x: 0.88, y: 0.38, r: 13, ax: 25, ay: 20 },
@@ -97,11 +368,9 @@ document.addEventListener("DOMContentLoaded", () => {
         t: rand(0, Math.PI * 2), speed: rand(0.006, 0.013)
     }));
 
-    // Waves
-    shapes.push({ type: 'wave',  t: 0,       speed: 0.007 });
+    shapes.push({ type: 'wave', t: 0, speed: 0.007 });
     shapes.push({ type: 'wave2', t: Math.PI, speed: 0.005 });
 
-    // Dot grids
     [
         { x: 0.08, y: 0.42, cols: 4, rows: 4 },
         { x: 0.72, y: 0.08, cols: 5, rows: 3 },
@@ -110,7 +379,6 @@ document.addEventListener("DOMContentLoaded", () => {
         t: rand(0, Math.PI * 2), speed: rand(0.004, 0.008)
     }));
 
-    // Chevrons >>>
     [
         { x: 0.28, y: 0.12 },
         { x: 0.68, y: 0.72 },
@@ -119,7 +387,6 @@ document.addEventListener("DOMContentLoaded", () => {
         t: rand(0, Math.PI * 2), speed: rand(0.003, 0.007)
     }));
 
-    // Triangle clusters
     [
         { x: 0.18, y: 0.22 },
         { x: 0.82, y: 0.18 },
@@ -128,13 +395,9 @@ document.addEventListener("DOMContentLoaded", () => {
         t: rand(0, Math.PI * 2), speed: rand(0.005, 0.009)
     }));
 
-    // Hexagon outline
     shapes.push({ type: 'hex', xr: 0.55, yr: 0.35, size: 120, t: rand(0, Math.PI * 2), speed: 0.004 });
-
-    // Circle outline
     shapes.push({ type: 'circleOutline', xr: 0.88, yr: 0.55, r: 55, t: rand(0, Math.PI * 2), speed: 0.005 });
 
-    // Plus signs
     [
         { x: 0.38, y: 0.68 },
         { x: 0.78, y: 0.48 },
@@ -144,10 +407,8 @@ document.addEventListener("DOMContentLoaded", () => {
         t: rand(0, Math.PI * 2), speed: rand(0.004, 0.009)
     }));
 
-    // Circuit lines
     shapes.push({ type: 'line1', t: 0, speed: 0.004 });
 
-    // --- Draw helpers ---
     function drawWave(t, phase, alpha, yBase) {
         ctx.save();
         ctx.globalAlpha = alpha;
@@ -192,9 +453,9 @@ document.addEventListener("DOMContentLoaded", () => {
         ctx.save();
         ctx.globalAlpha = alpha;
         ctx.fillStyle = col;
-        [[0,0],[14,0],[28,0],[7,-14],[21,-14]].forEach(([tx, ty]) => {
+        [[0, 0], [14, 0], [28, 0], [7, -14], [21, -14]].forEach(([tx, ty]) => {
             ctx.beginPath();
-            ctx.moveTo(x + tx,     y + ty - 6);
+            ctx.moveTo(x + tx, y + ty - 6);
             ctx.lineTo(x + tx + 6, y + ty + 5);
             ctx.lineTo(x + tx - 6, y + ty + 5);
             ctx.closePath();
@@ -269,93 +530,110 @@ document.addEventListener("DOMContentLoaded", () => {
         ctx.restore();
     }
 
-    // --- Main animation loop ---
     function animate() {
         ctx.clearRect(0, 0, W(), H());
-
         shapes.forEach(s => {
             const w = W(), h = H();
             s.t += s.speed || 0.005;
-
-            if (s.type === 'wave') {
-                drawWave(s.t, 0, 0.5, 0.68);
-
-            } else if (s.type === 'wave2') {
-                drawWave(s.t, Math.PI * 0.5, 0.35, 0.78);
-
-            } else if (s.type === 'line1') {
-                drawLine1(s.t);
-
-            } else if (s.type === 'circle') {
+            if (s.type === 'wave') { drawWave(s.t, 0, 0.5, 0.68); }
+            else if (s.type === 'wave2') { drawWave(s.t, Math.PI * 0.5, 0.35, 0.78); }
+            else if (s.type === 'line1') { drawLine1(s.t); }
+            else if (s.type === 'circle') {
                 const x = s.xr * w + Math.sin(s.t) * 25;
                 const y = s.yr * h + Math.cos(s.t * 0.8) * 20;
-                ctx.save();
-                ctx.globalAlpha = s.op;
-                ctx.beginPath();
-                ctx.arc(x, y, s.r, 0, Math.PI * 2);
-                ctx.fillStyle = s.col;
-                ctx.fill();
-                ctx.restore();
-
+                ctx.save(); ctx.globalAlpha = s.op;
+                ctx.beginPath(); ctx.arc(x, y, s.r, 0, Math.PI * 2);
+                ctx.fillStyle = s.col; ctx.fill(); ctx.restore();
             } else if (s.type === 'ball') {
                 const x = s.xr * w + Math.sin(s.t) * s.ax;
                 const y = s.yr * h + Math.cos(s.t * 0.9) * s.ay;
-                ctx.save();
-                ctx.globalAlpha = 0.9;
+                ctx.save(); ctx.globalAlpha = 0.9;
                 const grad = ctx.createRadialGradient(x - s.r * 0.3, y - s.r * 0.3, 0, x, y, s.r);
                 grad.addColorStop(0, '#ffffff');
                 grad.addColorStop(1, 'rgba(200,220,245,0.7)');
-                ctx.beginPath();
-                ctx.arc(x, y, s.r, 0, Math.PI * 2);
-                ctx.fillStyle = grad;
-                ctx.fill();
-                ctx.restore();
-
+                ctx.beginPath(); ctx.arc(x, y, s.r, 0, Math.PI * 2);
+                ctx.fillStyle = grad; ctx.fill(); ctx.restore();
             } else if (s.type === 'dots') {
                 const x = s.xr * w + Math.sin(s.t) * 8;
                 const y = s.yr * h + Math.cos(s.t * 0.7) * 8;
                 drawDots(x, y, s.cols, s.rows, '#1a5fa8', 0.35);
-
             } else if (s.type === 'chevron') {
                 const x = s.xr * w + Math.sin(s.t) * 10;
                 const y = s.yr * h + Math.cos(s.t * 0.8) * 8;
                 drawChevron(x, y, '#1a5fa8', 0.45);
-
             } else if (s.type === 'triangles') {
                 const x = s.xr * w + Math.sin(s.t) * 10;
                 const y = s.yr * h + Math.cos(s.t * 0.6) * 10;
                 drawTriangles(x, y, '#1a5fa8', 0.45);
-
             } else if (s.type === 'hex') {
                 const x = s.xr * w + Math.sin(s.t) * 12;
                 const y = s.yr * h + Math.cos(s.t * 0.75) * 10;
                 drawHex(x, y, s.size, '#1a5fa8', 0.15);
-
             } else if (s.type === 'circleOutline') {
                 const x = s.xr * w + Math.sin(s.t) * 10;
                 const y = s.yr * h + Math.cos(s.t * 0.9) * 8;
-                ctx.save();
-                ctx.globalAlpha = 0.2;
-                ctx.strokeStyle = '#1a5fa8';
-                ctx.lineWidth = 1;
-                ctx.beginPath();
-                ctx.arc(x, y, s.r, 0, Math.PI * 2);
-                ctx.stroke();
-                ctx.restore();
-
+                ctx.save(); ctx.globalAlpha = 0.2;
+                ctx.strokeStyle = '#1a5fa8'; ctx.lineWidth = 1;
+                ctx.beginPath(); ctx.arc(x, y, s.r, 0, Math.PI * 2);
+                ctx.stroke(); ctx.restore();
             } else if (s.type === 'plus') {
                 const x = s.xr * w + Math.sin(s.t) * 9;
                 const y = s.yr * h + Math.cos(s.t * 0.85) * 9;
                 drawPlus(x, y, '#1a5fa8', 0.4);
             }
         });
-
         requestAnimationFrame(animate);
     }
-
     animate();
-});
+
+    // --- Tab logic (account.html) ---
+    const tabSignin = document.getElementById('tab-signin');
+    const tabSignup = document.getElementById('tab-signup');
+    const panelSignin = document.getElementById('signin');
+    const panelSignup = document.getElementById('signup');
+    const welcomeSignin = document.getElementById('welcome-signin');
+    const welcomeSignup = document.getElementById('welcome-signup');
+
+    if (tabSignin && tabSignup) {
+        function switchTab(tab) {
+            if (tab === 'signin') {
+                tabSignin.classList.add('active'); panelSignin.classList.add('active'); welcomeSignin.classList.add('active');
+                tabSignup.classList.remove('active'); panelSignup.classList.remove('active'); welcomeSignup.classList.remove('active');
+            } else {
+                tabSignup.classList.add('active'); panelSignup.classList.add('active'); welcomeSignup.classList.add('active');
+                tabSignin.classList.remove('active'); panelSignin.classList.remove('active'); welcomeSignin.classList.remove('active');
+            }
+        }
+        tabSignin.addEventListener('click', () => switchTab('signin'));
+        tabSignup.addEventListener('click', () => switchTab('signup'));
+    }
+
+}); // end DOMContentLoaded
 
 
-//-------------CART FUNCTIONALITY-------------------------
+// ============================================================
+//  CART ACTIONS (called from cart.html inline onclick)
+// ============================================================
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    saveCart();
+    updateCartCount();
+    // Re-render
+    const cartBody = document.getElementById('cart-items-body');
+    if (cartBody) {
+        // Trigger re-render by re-calling renderCart via reload
+        location.reload();
+    }
+}
 
+function updateQty(index, newQty) {
+    const qty = parseInt(newQty);
+    if (qty < 1) return;
+    cart[index].qty = qty;
+    saveCart();
+    updateCartCount();
+    location.reload();
+}
+
+// Init cart count on every page
+updateCartCount();
