@@ -224,6 +224,48 @@ nav ul li a:hover {
     transform: rotate(-8deg) scale(1.1);
 }
 
+/* Buy Now Buttons */
+.buy-now-btn {
+    display: block;
+    align-items: center;
+    gap: 6px;
+    background: #004a7c;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 3px 6px rgba(255, 107, 53, 0.3);
+    margin: 15px auto 0;
+}
+
+.buy-now-btn:hover {
+    background: #0a70b4;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(255, 107, 53, 0.4);
+}
+
+.buy-now-btn:active {
+    background: #43a6e7;
+    transform: translateY(0px) scale(0.98);
+}
+
+.buy-now-btn:hover {
+    background: #0563a1;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 107, 53, 0.4);
+}
+
+.buy-now-btn:active {
+    background: #49b0f5;
+    transform: translateY(0px) scale(0.98);
+}
+
 
 /*--- SECTION HEADINGS ---*/
 h2 {
