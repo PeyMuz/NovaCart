@@ -97,6 +97,14 @@ const PRODUCTS = {
         img: "https://m.media-amazon.com/images/I/61CGHv6kmWL._AC_SX569_.jpg",
         description: "The ultimate precision mouse for creators and professionals. Features MagSpeed electromagnetic scrolling and 8K DPI sensor.",
         variants: ["Select Color", "Graphite", "Pale Grey"]
+    },
+    gamingpc: {
+        name: "KOTIN Prebuilt Gaming PC Desktop",
+        price: 1299.99,
+        category: "Electronics / PC Components",
+        img: "pics/gamingpc.png",
+        description: "Powered by AMD Ryzen 5 9600X up to 5.4GHz and GeForce RTX 5060 8GB GDDR7. Comes with 16GB DDR5-6000, 1TB PCIe 4.0 NVMe SSD, 650W 80+ Gold PSU, WiFi 7, and Windows 11 Home. Perfect for 1080p and 1440p gaming.",
+        variants: ["Select Configuration", "Standard", "With Monitor Bundle"]
     }
 };
 
@@ -147,6 +155,7 @@ function updateCartCount() {
         }
     });
 }
+
 function addToCart(name, price, img) {
     const existing = cart.find(item => item.name === name);
     if (existing) {
@@ -637,3 +646,42 @@ function updateQty(index, newQty) {
 
 // Init cart count on every page
 updateCartCount();
+
+
+//for pop up modal thank youuuuuu
+
+const checkout = document.getElementById('checkout-btn');
+const thankyou = document.getElementById('thankyou-modal');
+const close = document.getElementById('modal-close-btn');
+
+//checkout
+if (checkout) {
+    checkout.addEventListener('click', function() {
+        if (cart.length === 0) return;
+        thankyou.style.display = 'flex';
+    });
+}
+
+//close
+
+if (close) {
+    close.addEventListener('click', function () {
+        thankyou.style.display = 'none';
+
+        cart = [];
+        saveCart();
+        updateCartCount();
+        window.location.href = 'products.html';
+    });
+}
+
+
+//it will close the modal if it click outside the box
+
+if (thankyou) {
+    thankyou.addEventListener('click', function (e) {
+        if (e.target === thankyou) {
+            thankyou.style.display = 'none';
+        }
+    });
+}
