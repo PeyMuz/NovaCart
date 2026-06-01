@@ -15,6 +15,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     overflow-x: hidden;
+    transition: background 0.4s ease, color 0.4s ease;
 }
 
 h1, h2, h3 {
@@ -315,6 +316,19 @@ h2::after {
     font-size: 18px;
     margin-top: 10px;
     color: #002f4e;
+}
+
+/*---Scroll Fade-IN animation*/
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+   opacity: 1;
+   transform: translateY(0);
 }
 
 
@@ -1293,6 +1307,415 @@ table {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
+}
+
+
+/*=============DARK MODE FLOATING BUTTON=====================*/
+
+.darkmode-fab {
+   position: fixed;
+   bottom: 30px;
+   right: 30px;
+   width: 50px;
+   border-radius: 50%;
+   background: #0f79c0;
+   color: #fff;
+   border:none;
+   font-size: 20px;
+   cursor: pointer;
+   z-index: 9998;
+   box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+   transition: background 0.3s ease, transform 0.2s ease;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+
+.darkmode-fab:hover {
+    background: #005b96;
+    transform: scale(1.1);
+}
+
+/*=========for Black + Gold theme ============= */
+body.dark-mode {
+    background: #0a0a0a;
+    color: #f0e6c8;
+}
+
+body.dark-mode .navbar {
+    background-color: #111111;
+    border-bottom: 2px solid #c9a84c;
+}
+
+body.dark-mode nav ul li a{
+    color:#f0e6c8;
+}
+
+body.dark-mode nav ul li a::after {
+    background-color: #c9a84c;
+}
+
+body.dark-mode nav ul li a:hover {
+    color: #c9a84c;
+}
+
+body.darkmode .darmode-fab {
+    background: #c9a84c;
+    color: #0a0a0a;
+} 
+
+body.dark-mode .darkmode-fab:hover {
+    background: #e0b95a;
+}
+
+body.dark-mode .text-side h1 {
+  color:#f0e6c8;
+}
+
+body.dark-mode p {
+    color: #b0a080;
+}
+
+body.dark-mode .btn {
+    background: #c9a84c;
+    color: #0a0a0a;
+}
+
+body.dark-mode .btn:hover {
+    background: #e0b95a;
+}
+
+body.dark-mode .buy-now-btn {
+    background: #c9a84c;
+    color: #0a0a0a;
+}
+
+body.dark-mode .buy-now-btn:hover {
+    background: #e0b95a;
+}
+
+body.dark-mode h2::after{
+    background: #c9a84c;
+}
+
+body.dark-mode .categories, body.dark-mode .offer {
+    background: #111111;
+}
+
+body.dark-mode .col-3 p, body.dark-mode .col-4 h4, body.dark-mode .col-4 p {
+    color: #f0e6c8;
+}
+
+body.dark-mode .col-4 img,
+body.dark-mode .col-3 img {
+    background-color: #1a1a1a;
+}
+
+body.dark-mode .testimonial-card {
+    background: #1a1a1a;
+    box-shadow: 0 4px 20px rgba(201, 168, 76, 0.1);
+}
+
+body.dark-mode .testimonial-card p {
+    color: #b0a080;
+}
+
+body.dark-mode .testimonial-card h4 {
+    color:#c9a84c;
+}
+ 
+body.dark-mode .rating {
+    color: #c9a84c;
+}
+
+body.dark-mode .offer .col-2 p {
+    color: #c9a84c;
+}
+
+body.dark-mode .offer .col-2 h1 {
+    color: #f0e6c8;
+}
+
+body.dark-mode .footer {
+    background: #050505;
+    border-top: 2px solid #c9a84c;
+}
+
+body.dark-mode .cart-page table th {
+    background-color: #1a1a1a;
+    color: #c9a84c;
+}
+
+body.dark-mode .cart-page table td {
+    border-bottom: 1px solid #2a2a2a;
+}
+
+body.dark-mode .cart-info p {
+    color: #f0e6c8;
+}
+
+body.dark-mode .total-price table {
+    border-top: 3px solid #c9a84c;
+}
+
+body.dark-mode .bili {
+    background: #c9a84c;
+    color: #0a0a0a;
+}
+
+body.dark-mode .bili:hover {
+    background: #e0b95a;
+}
+
+body.dark-mode .modal-box {
+    background: #1a1a1a;
+}
+
+body.dark-mode .modal-box h2 {
+    color: #f0e6c8;
+}
+
+body.dark-mode .modal-icon {
+    background: #c9a84c;
+    color: #0a0a0a;
+}
+
+body.dark-mode select {
+    background: #1a1a1a;
+    color: #f0e6c8;
+    border-color: #333;
+}
+
+body.dark-mode .single-product h1 {
+    color: #f0e6c8;
+}
+
+body.dark-mode .single-product h4 {
+    color: #c9a84c;
+}
+
+body.dark-mode .small-img-col img:hover {
+    border-color: #c9a84c;
+}
+
+body.dark-mode .page-btn span {
+    border-color: #c9a84c;
+    color: #f0e6c8;
+}
+
+body.dark-mode .page-btn span:hover {
+    background: #c9a84c;
+    color: #0a0a0a;
+}
+
+body.dark-mode .contact-form input, body.dark-mode .contact-form textarea {
+    background: #1a1a1a !important;
+    color: #f0e6c8 !important;
+    border-color: #333 !important;
+}
+
+
+body.dark-mode .text-side p {
+    color: #b0a080;
+}
+
+
+
+body.dark-mode .offer .col-2 small {
+    color: #c9a84c;
+}
+
+
+body.dark-mode .footer ul li {
+    color: #c9a84c;
+}
+
+.darkmode-fab {
+    height: 50px;        
+}
+
+body.dark-mode .darkmode-fab {
+    background: #c9a84c;
+    color: #0a0a0a;
+}
+
+body.dark-mode .darkmode-fab i {
+    color: #000000;
+}
+
+body.dark-mode .cart-icon img {
+    filter: brightness(0) saturate(100%) invert(72%) sepia(45%) saturate(500%) hue-rotate(5deg) brightness(95%);
+}
+
+body.dark-mode .btn-icon {
+    filter: brightness(0);
+}
+
+
+
+.account-left,.account-right,.account-brand,.account-welcome,.account-welcome-sub,.account-field input,.account-field label,.account-btn-main,.account-btn-social,.account-tab,.account-tabs,
+.account-divider, .account-terms {
+    transition: background 0.4s ease, color 0.4s ease,
+                border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Smooth transitions for all elements */
+.navbar, .btn, .buy-now-btn, .footer,
+.testimonial-card, .offer, .categories,
+.darkmode-fab, .bili, .modal-box,
+.cart-page table th, .cart-page table td,
+select, .col-4 img, .col-3 img {
+    transition: background 0.4s ease, color 0.4s ease,
+                border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Logo gold tint */
+body.dark-mode .logo img {
+    filter: drop-shadow(3px 4px 8px rgba(0,0,0,0.5)) sepia(1) saturate(3) hue-rotate(5deg) brightness(0.95);
+}
+
+
+.account-left {
+    background: linear-gradient(160deg, #ddeeff 0%, #b8d4f5 50%, #85b5ee 100%) !important;
+}
+
+/* Account page dark mode — left side */
+body.dark-mode .account-left {
+    background: linear-gradient(160deg, #0a0800 0%, #1a1200 50%, #251a00 100%) !important;
+}
+body.dark-mode .account-brand {
+    color: #c9a84c;
+}
+
+body.dark-mode .account-brand span {
+    color: #e0b95a;
+}
+
+body.dark-mode .account-tagline-sub {
+    color: #c9a84c;
+    letter-spacing: 4px;
+}
+
+body.dark-mode .account-tagline {
+    color: #f0e6c8;
+}
+
+/* Account page dark mode — right side */
+body.dark-mode .account-right {
+    background: #0f0f0f;
+    box-shadow: -8px 0 40px rgba(201, 168, 76, 0.1);
+}
+
+body.dark-mode .account-welcome {
+    color: #f0e6c8;
+}
+
+body.dark-mode .account-welcome-sub {
+    color: #b0a080;
+}
+
+body.dark-mode .account-tabs {
+    border-bottom-color: #2a2a2a;
+}
+
+body.dark-mode .account-tab {
+    color: #666;
+}
+
+body.dark-mode .account-tab.active {
+    color: #c9a84c;
+}
+
+body.dark-mode .account-tab.active::after {
+    background: #c9a84c;
+}
+
+body.dark-mode .account-field label {
+    color: #c9a84c;
+}
+
+body.dark-mode .account-field input {
+    background: #1a1a1a;
+    border-color: #333;
+    color: #f0e6c8;
+}
+
+body.dark-mode .account-field input::placeholder {
+    color: #555;
+}
+
+body.dark-mode .account-field input:focus {
+    border-color: #c9a84c;
+    box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.15);
+}
+
+body.dark-mode .account-btn-main {
+    background: linear-gradient(135deg, #c9a84c, #a8832a);
+    box-shadow: 0 4px 16px rgba(201, 168, 76, 0.3);
+}
+
+body.dark-mode .account-btn-main:hover {
+    box-shadow: 0 8px 24px rgba(201, 168, 76, 0.45);
+}
+
+body.dark-mode .account-forgot a {
+    color: #c9a84c;
+}
+
+body.dark-mode .account-divider {
+    color: #444;
+}
+
+body.dark-mode .account-divider::before,
+body.dark-mode .account-divider::after {
+    background: #2a2a2a;
+}
+
+body.dark-mode .account-btn-social {
+    background: #1a1a1a;
+    border-color: #333;
+    color: #f0e6c8;
+}
+
+body.dark-mode .account-btn-social:hover {
+    background: #222;
+    border-color: #c9a84c;
+}
+
+body.dark-mode .account-terms {
+    color: #555;
+}
+
+body.dark-mode .account-terms span {
+    color: #c9a84c;
+}
+
+/* Footer logo gold tint */
+body.dark-mode .footer-col-2 img {
+    filter: sepia(1) saturate(3) hue-rotate(5deg) brightness(0.95);
+}
+
+/* Footer "Nova" blue span text → gold */
+body.dark-mode .footer-col-2 p {
+    color: #b0a080;
+}
+
+/* Stats numbers sa About page (inline style override) */
+body.dark-mode [style*="color:#005b96"],
+body.dark-mode [style*="color: #005b96"] {
+    color: #c9a84c !important;
+}
+
+
+/*For amad and corsair color*/
+body.dark-mode .col-5:nth-child(2) img,
+body.dark-mode .col-5:nth-child(5) img {
+    filter: brightness(0) invert(1);
+}
+
+body.dark-mode .footer-col-2 p {
+    color: #dbbb68 !important;
 }
 
 

@@ -203,26 +203,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const product = PRODUCTS[id];
 
         if (product) {
-            // Set page title
             document.title = product.name + " - NovaCart";
 
-            // Fill in product details
             productImg.src = product.img;
             productName.textContent = product.name;
             productPrice.textContent = "$" + product.price.toFixed(2);
             productCategory.textContent = product.category;
             productDescription.textContent = product.description;
 
-            // Fill small gallery images (all same for now)
             const smallImgs = document.querySelectorAll('.small-img');
             smallImgs.forEach(img => { img.src = product.img; });
 
-            // Small image gallery click
             smallImgs.forEach(img => {
                 img.onclick = function () { productImg.src = this.src; };
             });
 
-            // Fill variant select
             if (variantSelect && product.variants) {
                 variantSelect.innerHTML = '';
                 product.variants.forEach(v => {
@@ -232,7 +227,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             }
 
-            // Add to Cart button
             if (addToCartBtn) {
                 addToCartBtn.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -249,7 +243,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             }
 
-            // Related products — show 4 random others
             if (relatedContainer) {
                 const others = Object.entries(PRODUCTS).filter(([key]) => key !== id);
                 const shuffled = others.sort(() => 0.5 - Math.random()).slice(0, 4);
@@ -269,7 +262,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
         } else {
-            // Product not found
             productName.textContent = "Product not found.";
             productDescription.textContent = "Please go back to the products page.";
         }
@@ -324,7 +316,6 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
         }).join('');
 
-        // Calculate totals
         const subtotal = cart.reduce((sum, item) => {
             return sum + (parseFloat(item.price) || 0) * item.qty;
         }, 0);
@@ -359,15 +350,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const shapes = [];
 
+    // BIG CIRCLES
     [
-        { x: 0.08, y: 0.85, r: 90, col: '#2a7de1', op: 1 },
-        { x: 0.95, y: 0.92, r: 70, col: '#1a6fd4', op: 1 },
-        { x: 0.02, y: 0.15, r: 50, col: '#4da6ff', op: 0.85 },
+        { x: 0.08, y: 0.85, r: 90, darkCol: '#8a6a1a', lightCol: '#004a7c', op: 1 },
+        { x: 0.95, y: 0.92, r: 70, darkCol: '#6b5015', lightCol: '#003f6b', op: 1 },
+        { x: 0.02, y: 0.15, r: 50, darkCol: '#c9a84c', lightCol: '#0070ba', op: 0.85 },
     ].forEach(c => shapes.push({
-        type: 'circle', xr: c.x, yr: c.y, r: c.r, col: c.col, op: c.op,
+        type: 'circle', xr: c.x, yr: c.y, r: c.r,
+        darkCol: c.darkCol, lightCol: c.lightCol, op: c.op,
         t: rand(0, Math.PI * 2), speed: rand(0.004, 0.009)
     }));
 
+    // SMALL BALLS
     [
         { x: 0.22, y: 0.55, r: 18, ax: 30, ay: 30 },
         { x: 0.88, y: 0.38, r: 13, ax: 25, ay: 20 },
@@ -377,8 +371,8 @@ document.addEventListener("DOMContentLoaded", () => {
         t: rand(0, Math.PI * 2), speed: rand(0.006, 0.013)
     }));
 
-    shapes.push({ type: 'wave', t: 0, speed: 0.007 });
-    shapes.push({ type: 'wave2', t: Math.PI, speed: 0.005 });
+    shapes.push({ type: 'wave',  t: 0,          speed: 0.007 });
+    shapes.push({ type: 'wave2', t: Math.PI,     speed: 0.005 });
 
     [
         { x: 0.08, y: 0.42, cols: 4, rows: 4 },
@@ -404,8 +398,8 @@ document.addEventListener("DOMContentLoaded", () => {
         t: rand(0, Math.PI * 2), speed: rand(0.005, 0.009)
     }));
 
-    shapes.push({ type: 'hex', xr: 0.55, yr: 0.35, size: 120, t: rand(0, Math.PI * 2), speed: 0.004 });
-    shapes.push({ type: 'circleOutline', xr: 0.88, yr: 0.55, r: 55, t: rand(0, Math.PI * 2), speed: 0.005 });
+    shapes.push({ type: 'hex',           xr: 0.55, yr: 0.35, size: 120, t: rand(0, Math.PI * 2), speed: 0.004 });
+    shapes.push({ type: 'circleOutline', xr: 0.88, yr: 0.55, r: 55,     t: rand(0, Math.PI * 2), speed: 0.005 });
 
     [
         { x: 0.38, y: 0.68 },
@@ -418,7 +412,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     shapes.push({ type: 'line1', t: 0, speed: 0.004 });
 
+    // ── helper: returns colors based on current mode ──────────
+    function getColors() {
+        const dark = document.body.classList.contains('dark-mode');
+        return {
+            isDark:      dark,
+            accent:      dark ? '#c9a84c' : '#005b96',
+            wave1a:      dark ? 'rgba(120, 90, 20, 0.55)' : 'rgba(0, 91, 150, 0.35)',
+            wave1b:      dark ? 'rgba(60, 40, 5, 0.70)'   : 'rgba(0, 47, 78, 0.50)',
+            ballHigh:    dark ? '#f5e6c0'                  : '#cce0f5',
+            ballLow:     dark ? 'rgba(180, 140, 60, 0.7)'  : 'rgba(0, 91, 150, 0.6)',
+        };
+    }
+
     function drawWave(t, phase, alpha, yBase) {
+        const c = getColors();
         ctx.save();
         ctx.globalAlpha = alpha;
         ctx.beginPath();
@@ -433,8 +441,8 @@ document.addEventListener("DOMContentLoaded", () => {
         ctx.lineTo(w, h);
         ctx.closePath();
         const grad = ctx.createLinearGradient(0, yBase * h, 0, h);
-        grad.addColorStop(0, 'rgba(70,150,230,0.55)');
-        grad.addColorStop(1, 'rgba(30,100,200,0.70)');
+        grad.addColorStop(0, c.wave1a);
+        grad.addColorStop(1, c.wave1b);
         ctx.fillStyle = grad;
         ctx.fill();
         ctx.restore();
@@ -518,12 +526,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function drawLine1(t) {
+        const c = getColors();
         const w = W(), h = H();
         const ox = Math.sin(t) * 15;
         const oy = Math.cos(t * 0.7) * 10;
         ctx.save();
         ctx.globalAlpha = 0.18;
-        ctx.strokeStyle = '#1a4a8a';
+        ctx.strokeStyle = c.accent;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(w * 0.25 + ox, h * 0.05 + oy);
@@ -541,56 +550,76 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function animate() {
         ctx.clearRect(0, 0, W(), H());
+
+        // ── get current mode colors once per frame ────────────
+        const c = getColors();
+
         shapes.forEach(s => {
             const w = W(), h = H();
             s.t += s.speed || 0.005;
-            if (s.type === 'wave') { drawWave(s.t, 0, 0.5, 0.68); }
-            else if (s.type === 'wave2') { drawWave(s.t, Math.PI * 0.5, 0.35, 0.78); }
-            else if (s.type === 'line1') { drawLine1(s.t); }
-            else if (s.type === 'circle') {
+
+            if (s.type === 'wave') {
+                drawWave(s.t, 0, 0.5, 0.68);
+
+            } else if (s.type === 'wave2') {
+                drawWave(s.t, Math.PI * 0.5, 0.35, 0.78);
+
+            } else if (s.type === 'line1') {
+                drawLine1(s.t);
+
+            } else if (s.type === 'circle') {
                 const x = s.xr * w + Math.sin(s.t) * 25;
                 const y = s.yr * h + Math.cos(s.t * 0.8) * 20;
+                const col = c.isDark ? s.darkCol : s.lightCol;
                 ctx.save(); ctx.globalAlpha = s.op;
                 ctx.beginPath(); ctx.arc(x, y, s.r, 0, Math.PI * 2);
-                ctx.fillStyle = s.col; ctx.fill(); ctx.restore();
+                ctx.fillStyle = col; ctx.fill(); ctx.restore();
+
             } else if (s.type === 'ball') {
                 const x = s.xr * w + Math.sin(s.t) * s.ax;
                 const y = s.yr * h + Math.cos(s.t * 0.9) * s.ay;
                 ctx.save(); ctx.globalAlpha = 0.9;
                 const grad = ctx.createRadialGradient(x - s.r * 0.3, y - s.r * 0.3, 0, x, y, s.r);
-                grad.addColorStop(0, '#ffffff');
-                grad.addColorStop(1, 'rgba(200,220,245,0.7)');
+                grad.addColorStop(0, c.ballHigh);
+                grad.addColorStop(1, c.ballLow);
                 ctx.beginPath(); ctx.arc(x, y, s.r, 0, Math.PI * 2);
                 ctx.fillStyle = grad; ctx.fill(); ctx.restore();
+
             } else if (s.type === 'dots') {
                 const x = s.xr * w + Math.sin(s.t) * 8;
                 const y = s.yr * h + Math.cos(s.t * 0.7) * 8;
-                drawDots(x, y, s.cols, s.rows, '#1a5fa8', 0.35);
+                drawDots(x, y, s.cols, s.rows, c.accent, 0.35);
+
             } else if (s.type === 'chevron') {
                 const x = s.xr * w + Math.sin(s.t) * 10;
                 const y = s.yr * h + Math.cos(s.t * 0.8) * 8;
-                drawChevron(x, y, '#1a5fa8', 0.45);
+                drawChevron(x, y, c.accent, 0.45);
+
             } else if (s.type === 'triangles') {
                 const x = s.xr * w + Math.sin(s.t) * 10;
                 const y = s.yr * h + Math.cos(s.t * 0.6) * 10;
-                drawTriangles(x, y, '#1a5fa8', 0.45);
+                drawTriangles(x, y, c.accent, 0.45);
+
             } else if (s.type === 'hex') {
                 const x = s.xr * w + Math.sin(s.t) * 12;
                 const y = s.yr * h + Math.cos(s.t * 0.75) * 10;
-                drawHex(x, y, s.size, '#1a5fa8', 0.15);
+                drawHex(x, y, s.size, c.accent, 0.15);
+
             } else if (s.type === 'circleOutline') {
                 const x = s.xr * w + Math.sin(s.t) * 10;
                 const y = s.yr * h + Math.cos(s.t * 0.9) * 8;
                 ctx.save(); ctx.globalAlpha = 0.2;
-                ctx.strokeStyle = '#1a5fa8'; ctx.lineWidth = 1;
+                ctx.strokeStyle = c.accent; ctx.lineWidth = 1;
                 ctx.beginPath(); ctx.arc(x, y, s.r, 0, Math.PI * 2);
                 ctx.stroke(); ctx.restore();
+
             } else if (s.type === 'plus') {
                 const x = s.xr * w + Math.sin(s.t) * 9;
                 const y = s.yr * h + Math.cos(s.t * 0.85) * 9;
-                drawPlus(x, y, '#1a5fa8', 0.4);
+                drawPlus(x, y, c.accent, 0.4);
             }
         });
+
         requestAnimationFrame(animate);
     }
     animate();
@@ -627,10 +656,8 @@ function removeFromCart(index) {
     cart.splice(index, 1);
     saveCart();
     updateCartCount();
-    // Re-render
     const cartBody = document.getElementById('cart-items-body');
     if (cartBody) {
-        // Trigger re-render by re-calling renderCart via reload
         location.reload();
     }
 }
@@ -648,26 +675,23 @@ function updateQty(index, newQty) {
 updateCartCount();
 
 
-//for pop up modal thank youuuuuu
-
+// ============================================================
+//  THANK YOU MODAL
+// ============================================================
 const checkout = document.getElementById('checkout-btn');
 const thankyou = document.getElementById('thankyou-modal');
 const close = document.getElementById('modal-close-btn');
 
-//checkout
 if (checkout) {
-    checkout.addEventListener('click', function() {
+    checkout.addEventListener('click', function () {
         if (cart.length === 0) return;
         thankyou.style.display = 'flex';
     });
 }
 
-//close
-
 if (close) {
     close.addEventListener('click', function () {
         thankyou.style.display = 'none';
-
         cart = [];
         saveCart();
         updateCartCount();
@@ -675,13 +699,58 @@ if (close) {
     });
 }
 
-
-//it will close the modal if it click outside the box
-
 if (thankyou) {
     thankyou.addEventListener('click', function (e) {
         if (e.target === thankyou) {
             thankyou.style.display = 'none';
         }
+    });
+}
+
+
+// ============================================================
+//  SCROLL FADE IN
+// ============================================================
+const fadeEls = document.querySelectorAll(
+    '.col-3, .col-4, .col-5, .offer, .testimonial-card, .categories'
+);
+
+fadeEls.forEach(el => el.classList.add('fade-in'));
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.15 });
+
+fadeEls.forEach(el => observer.observe(el));
+
+
+// ============================================================
+//  DARK MODE TOGGLE
+// ============================================================
+const darkmodeBtn = document.getElementById('darkmode-btn');
+
+function applyDarkMode(isDark) {
+    if (isDark) {
+        document.body.classList.add('dark-mode');
+        if (darkmodeBtn) darkmodeBtn.innerHTML = '<i class="fa fa-sun"></i>';
+    } else {
+        document.body.classList.remove('dark-mode');
+        if (darkmodeBtn) darkmodeBtn.innerHTML = '<i class="fa fa-moon"></i>';
+    }
+}
+
+// Apply saved preference on page load
+applyDarkMode(localStorage.getItem('novacart-darkmode') === 'true');
+
+if (darkmodeBtn) {
+    darkmodeBtn.addEventListener('click', function () {
+        const isDark = !document.body.classList.contains('dark-mode');
+        localStorage.setItem('novacart-darkmode', isDark);
+        applyDarkMode(isDark);
     });
 }
