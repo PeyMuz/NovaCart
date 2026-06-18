@@ -80,9 +80,9 @@ While building NovaCart, I improved my skills in:
 
 Kylle Bantog
 
-GitHub:
-https://github.com/PeyMuz
+Gitclone:
 
+https://github.com/PeyMuz/NovaCart.git
 ---
 
 NovaCart was created as a front-end e-commerce project to practice and improve web development skills.
