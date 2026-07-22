@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <title>Products - NovaCart</title>
+    <link rel="icon" type="image/png" href="pics/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+            <a href="home.html">
+                <img src="pics/nova.png" alt="NovaCart Logo">
+            </a>
+        </div>
+        <nav>
+            <ul class="menu-items">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="account.html">Account</a></li>
+            </ul>
+            <div class="cart-icon">
+                <a href="cart.html"><img src="pics/cart.png" alt="Cart Icon"></a>
+            </div>
+            <img src="https://freesvg.org/img/menu-icon.png" alt="menu" class="menu" onclick="menuToggle()">
+        </nav>
+    </div>
+
+    <div class="small-container">
+        <div class="row row-2">
+            <h2>All Products</h2>
+            <select>
+                <option>Default Sorting</option>
+                <option>Sort by price</option>
+                <option>Sort by popularity</option>
+                <option>Sort by rating</option>
+                <option>Sort by name</option>
+            </select>
+        </div>
+
+        <div class="row products-row">
+
+            <!-- 1 -->
+            <div class="col-4">
+                <img src="pics/T-shirt.png">
+                <h4>Printed T-Shirt</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                </div>
+                <p>$19.99</p>
+                <button class="buy-now-btn" data-id="tshirt" data-name="Printed T-Shirt" data-price="$19.99" data-img="pics/T-shirt.png">Buy now</button>
+            </div>
+
+            <!-- 2 -->
+            <div class="col-4">
+                <img src="pics/rtx 50.png" class="rtx-img">
+                <h4>RTX 5090 Graphics Card</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                </div>
+                <p>$1,999.99</p>
+                <button class="buy-now-btn" data-id="rtx5090" data-name="RTX 5090 Graphics Card" data-price="$1,999.99" data-img="pics/rtx 50.png">Buy now</button>
+            </div>
+
+            <!-- 3 -->
+            <div class="col-4">
+                <img src="pics/Ben-10.png">
+                <h4>Ben 10 Kid's Short</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                </div>
+                <p>$9.99</p>
+                <button class="buy-now-btn" data-id="ben10" data-name="Ben 10 Kid's Short" data-price="$9.99" data-img="pics/Ben-10.png">Buy now</button>
+            </div>
+
+            <!-- 4 -->
+            <div class="col-4">
+                <img src="pics/women dress.png">
+                <h4>Aria Linen Shirt Dress</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                </div>
+                <p>$10.99</p>
+                <button class="buy-now-btn" data-id="ariadress" data-name="Aria Linen Shirt Dress" data-price="$10.99" data-img="pics/women dress.png">Buy now</button>
+            </div>
+
+            <!-- 5 -->
+            <div class="col-4">
+                <img src="pics/omnitrix.png">
+                <h4>Omnitrix fx Limited Edition</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                </div>
+                <p>$9.99</p>
+                <button class="buy-now-btn" data-id="omnitrix" data-name="Omnitrix fx Limited Edition" data-price="$9.99" data-img="pics/omnitrix.png">Buy now</button>
+            </div>
+
+            <!-- 6 -->
+            <div class="col-4">
+                <img src="pics/Red.png">
+                <h4>Redragon Fizz RGB Keyboard</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                </div>
+                <p>$19.99</p>
+                <button class="buy-now-btn" data-id="redragon" data-name="Redragon Fizz RGB Keyboard" data-price="$19.99" data-img="pics/Red.png">Buy now</button>
+            </div>
+
+            <!-- 7 -->
+            <div class="col-4">
+                <img src="pics/cmf.png" class="cmf">
+                <h4>CMF Watch 3 Pro</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                </div>
+                <p>$59</p>
+                <button class="buy-now-btn" data-id="cmfwatch" data-name="CMF Watch 3 Pro" data-price="$59" data-img="pics/cmf.png">Buy now</button>
+            </div>
+
+            <!-- 8 -->
+            <div class="col-4">
+                <img src="pics/iphone17.png" class="iphone17">
+                <h4>Apple iPhone 17 512GB</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                </div>
+                <p>$1,499</p>
+                <button class="buy-now-btn" data-id="iphone17" data-name="Apple iPhone 17 512GB" data-price="$1,499" data-img="pics/iphone17.png">Buy now</button>
+            </div>
+
+            <!-- 9 -->
+            <div class="col-4">
+                <img src="https://m.media-amazon.com/images/I/61PPlQVg8xL._AC_SL1500_.jpg">
+                <h4>JBL Tune Flex Wireless Earbuds</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                </div>
+                <p>$49.99</p>
+                <button class="buy-now-btn" data-id="jbl" data-name="JBL Tune Flex Wireless Earbuds" data-price="$49.99" data-img="https://m.media-amazon.com/images/I/61PPlQVg8xL._AC_SL1500_.jpg">Buy now</button>
+            </div>
+
+            <!-- 10 -->
+            <div class="col-4">
+                <img src="https://m.media-amazon.com/images/I/71p9qhn9XbL._AC_SX569_.jpg">
+                <h4>COOFANDY Men's Linen Beach Shirt</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <p>$29.99</p>
+                <button class="buy-now-btn" data-id="coofandy" data-name="COOFANDY Men's Linen Beach Shirt" data-price="$29.99" data-img="https://m.media-amazon.com/images/I/71p9qhn9XbL._AC_SX569_.jpg">Buy now</button>
+            </div>
+
+            <!-- 11 -->
+            <div class="col-4">
+                <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSfQQY-hLHvndn3ckzEcnGuYQx19MqXztz7il9a-z4PfZ9sidxDr45haWxlmr5l7jNcYqvxjYI9KNKmWVfEVD0IK_BivnkJnbw0wxTSX7iu5hm0eWNyc3bzbg" class="iphone17">
+                <h4>Nike Air Max 270 Sneakers</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                </div>
+                <p>$129.99</p>
+                <button class="buy-now-btn" data-id="airmax" data-name="Nike Air Max 270 Sneakers" data-price="$129.99" data-img="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSfQQY-hLHvndn3ckzEcnGuYQx19MqXztz7il9a-z4PfZ9sidxDr45haWxlmr5l7jNcYqvxjYI9KNKmWVfEVD0IK_BivnkJnbw0wxTSX7iu5hm0eWNyc3bzbg">Buy now</button>
+            </div>
+
+            <!-- 12 -->
+            <div class="col-4">
+                <img src="https://m.media-amazon.com/images/I/61CGHv6kmWL._AC_SX569_.jpg" class="cmf">
+                <h4>Logitech MX Master 3S Mouse</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <p>$89.99</p>
+                <button class="buy-now-btn" data-id="mxmaster" data-name="Logitech MX Master 3S Mouse" data-price="$89.99" data-img="https://m.media-amazon.com/images/I/61CGHv6kmWL._AC_SX569_.jpg">Buy now</button>
+            </div>
+
+            <!-- 13 -->
+            <div class="col-4">
+                <img src="pics/gamingpc.png" class="cmf">
+                <h4>KOTIN Prebuilt Gaming PC Desktop</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                </div>
+                <p>$1,299.99</p>
+                <button class="buy-now-btn" data-id="gamingpc" data-name="KOTIN Prebuilt Gaming PC Desktop" data-price="$1,299.99" data-img="pics/gamingpc.png">Buy now</button>
+            </div>
+
+        </div>
+
+        <div class="page-btn">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>&#8594;</span>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for Android and iOS mobile phone.</p>
+                    <div class="app-logo">
+                        <img src="pics/play-store.png" alt="Play Store">
+                        <img src="pics/app-store.png" alt="App Store">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="pics/nova.png" alt="NovaCart Logo">
+                    <p>Our Purpose Is To Make the people feel pleasure and benefits in our online platform</p>
+                </div>
+                <div class="footer-right-wrapper">
+                    <div class="footer-col-3">
+                        <h3>Useful Links</h3>
+                        <ul>
+                            <li>Coupons</li>
+                            <li>Blog Post</li>
+                            <li>Return Policy</li>
+                            <li>Join Affiliate</li>
+                        </ul>
+                    </div>
+                    <div class="footer-col-4">
+                        <h3>Follow us</h3>
+                        <ul>
+                            <li>Facebook</li>
+                            <li>Twitter</li>
+                            <li>Instagram</li>
+                            <li>LinkedIn</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">Copyright 2026 - NovaCart</p>
+        </div>
+    </div>
+
+                  <!-- DARK MODE TOGGLE -->
+        <button id="darkmode-btn" class="darkmode-fab" title="Toggle Dark Mode">
+            <i class="fa fa-moon"></i>
+        </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

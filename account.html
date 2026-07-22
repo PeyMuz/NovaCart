@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account - NovaCart</title>
+    <link rel="icon" type="image/png" href="pics/icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="account-page">
+        <div class="account-card">
+
+            <div class="account-left">
+                <canvas id="bgCanvas"></canvas>
+
+                <div class="account-left-content">
+                    <h1 class="account-brand">Nova<span>Cart</span></h1>
+                    <p class="account-tagline-sub">Discover. Choose. Own.</p>
+                    <p class="account-tagline">Your one-stop shop for everything you love.</p>
+                </div>
+            </div>
+
+            <div class="account-right">
+
+                <div id="welcome-signin" class="account-welcome-text active">
+                    <h2 class="account-welcome">Welcome back!</h2>
+                    <p class="account-welcome-sub">Sign in to your account to continue.</p>
+                </div>
+                <div id="welcome-signup" class="account-welcome-text hidden">
+                    <h2 class="account-welcome">Create Account</h2>
+                    <p class="account-welcome-sub">Join us today and discover amazing products!</p>
+                </div>
+
+                <div class="account-tabs">
+                    <button class="account-tab active" id="tab-signin">Sign In</button>
+                    <button class="account-tab" id="tab-signup">Sign Up</button>
+                </div>
+
+                <div id="signin" class="account-panel active">
+                    <div class="account-field">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="you@example.com">
+                    </div>
+                    <div class="account-field">
+                        <label>Password</label>
+                        <input type="password" placeholder="Your password">
+                    </div>
+                    <div class="account-forgot">
+                        <a href="#">Forgot password?</a>
+                    </div>
+                    <button class="account-btn-main">Sign In</button>
+                    <div class="account-divider">or continue with</div>
+                    <div class="account-social-row">
+                        <button class="account-btn-social">G &nbsp; Google</button>
+                        <button class="account-btn-social">f &nbsp; Facebook</button>
+                    </div>
+                </div>
+
+                <div id="signup" class="account-panel hidden">
+                    <div class="account-row-2">
+                        <div class="account-field">
+                            <label>First Name</label>
+                            <input type="text" placeholder="Juan">
+                        </div>
+                        <div class="account-field">
+                            <label>Last Name</label>
+                            <input type="text" placeholder="Dela Cruz">
+                        </div>
+                    </div>
+                    <div class="account-field">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="you@example.com">
+                    </div>
+                    <div class="account-field">
+                        <label>Password</label>
+                        <input type="password" placeholder="Min. 8 characters">
+                    </div>
+                    <div class="account-field">
+                        <label>Confirm Password</label>
+                        <input type="password" placeholder="Repeat your password">
+                    </div>
+                    <button class="account-btn-main">Create Account</button>
+                    <div class="account-divider">or sign up with</div>
+                    <div class="account-social-row">
+                        <button class="account-btn-social">G &nbsp; Google</button>
+                        <button class="account-btn-social">f &nbsp; Facebook</button>
+                    </div>
+                    <p class="account-terms">
+                        By signing up, you agree to our
+                        <span>Terms</span> & <span>Privacy Policy</span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- DARK MODE TOGGLE -->
+    <button id="darkmode-btn" class="darkmode-fab" title="Toggle Dark Mode">
+        <i class="fa fa-moon"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
